@@ -1,0 +1,51 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage[T1]{fontenc}
+
+\newcommand*{\eg}[1]{for example, #1} 
+\newcommand*{\teorica}[1]{teoricamente, #1}
+
+\newenvironment{centro}[2]{\teorica} 
+
+\title{Star Wars}
+\author{George Lucas}
+\date{\today}
+
+\begin{document}
+  \new
+  \maketitle
+
+  \tableofcontents
+  \pagenumbering{roman}
+
+  \chapter[short]{Introduction}
+  \label{chap:intro}
+
+    \section[short]{Motivation}
+    \label{chap:sec:motivation}
+      This is the "motivation" section.
+
+      {\begin{center}}
+        You can find motivation \eg{in this movies}.
+      {\end{center}}
+
+    \section[short]{Document Organization}
+    \label{chap:sec:documentOrganiztion}
+      This is the "Document Organization" section. 
+      \newline
+      You can find the "A New Hope" chapter in: \ref*{chap:newHope}.
+      You can find the "The Empire Strikes Back" chapter in: \ref*{chap:empireStrikesBack}.
+      You can find the "Return of the Jedi" chapter in: \ref*{chap:returnOfTheJedi}.
+  
+  \chapter[short]{A New Hope}
+  \label{chap:newHope}
+  
+  \chapter[short]{The Empire Strikes Back}
+  \label{chap:empireStrikesBack}
+
+  \chapter[short]{Return of the Jedi}
+  \label{chap:returnOfTheJedi}
+
+  \chapter[short]{Conclusion}
+  \label{chap:conclusion}
+
+  \end{document}
