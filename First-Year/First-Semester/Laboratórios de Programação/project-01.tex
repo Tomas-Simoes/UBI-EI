@@ -1,34 +1,41 @@
 \documentclass[a4paper, 12pt]{report}
 \usepackage[T1]{fontenc}
 
+%? Create a new command (with 1 parameter)
 \newcommand*{\eg}[1]{for example, #1} 
-\newcommand*{\teorica}[1]{teoricamente, #1}
+\newcommand*{\teorica}[1]{Theoretical, #1}
 
-\newenvironment{centro}[2]{\teorica} 
+%? Create a new enviroment
+\newenvironment{centro}[1]{\teorica{#1}, I hope.}{} 
 
 \title{Star Wars}
 \author{George Lucas}
 \date{\today}
 
 \begin{document}
-  \new
   \maketitle
 
+  %? Create a index with the page numering in Roman
   \tableofcontents
   \pagenumbering{roman}
-
-  \chapter[short]{Introduction}
+  %? Creates a chapter and label it (it's just like an ID to identify the element)
+  \chapter{Introduction}
   \label{chap:intro}
 
-    \section[short]{Motivation}
+    \section{Motivation}
     \label{chap:sec:motivation}
       This is the "motivation" section.
 
-      {\begin{center}}
+      %? Uses the enviroment "center". Inside that enviroment the text is centered.
+      \begin{center}
         You can find motivation \eg{in this movies}.
-      {\end{center}}
-
-    \section[short]{Document Organization}
+      \end{center}
+      
+      \begin{centro} {this should work}
+      \end{centro}
+        
+      
+    \section{Document Organization}
     \label{chap:sec:documentOrganiztion}
       This is the "Document Organization" section. 
       \newline
@@ -36,16 +43,16 @@
       You can find the "The Empire Strikes Back" chapter in: \ref*{chap:empireStrikesBack}.
       You can find the "Return of the Jedi" chapter in: \ref*{chap:returnOfTheJedi}.
   
-  \chapter[short]{A New Hope}
+  \chapter{A New Hope}
   \label{chap:newHope}
   
-  \chapter[short]{The Empire Strikes Back}
+  \chapter{The Empire Strikes Back}
   \label{chap:empireStrikesBack}
 
-  \chapter[short]{Return of the Jedi}
+  \chapter{Return of the Jedi}
   \label{chap:returnOfTheJedi}
 
-  \chapter[short]{Conclusion}
+  \chapter{Conclusion}
   \label{chap:conclusion}
 
   \end{document}
