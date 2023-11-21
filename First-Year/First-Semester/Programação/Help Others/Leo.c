@@ -14,3 +14,16 @@ int soma=0;
   printf("%d", soma);
 }
 
+/*
+
+n = 3
+
+2 - maior é o 2
+---
+10 maior dos 3 é 10
+---
+15
+---
+
+loop enquanto o numero de numeros que nos metemos for menor que N 
+*/

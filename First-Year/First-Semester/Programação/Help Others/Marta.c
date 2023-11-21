@@ -19,3 +19,13 @@ int main(int argc, char const *argv[])
     
   return 0;
 }
+
+/* 
+
+n = 3
+
+1 - maior é 1
+2 - 2 > 1 entao o maior é o 2
+3 - 3 > 2 entao o maior é o 3
+
+*/
