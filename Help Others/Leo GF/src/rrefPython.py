@@ -105,7 +105,6 @@ def elim_col(matrix):
               break
   return matrixWithNullColum
 
-
 testMatrix = testMatrix5
 firstNonZeroColumIndex = nonzero_col(testMatrix)
 matrixWithPivoInFirstRow  = put_pivot(firstNonZeroColumIndex, testMatrix)
