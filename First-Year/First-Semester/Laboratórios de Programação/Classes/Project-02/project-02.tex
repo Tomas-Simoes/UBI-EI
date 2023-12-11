@@ -1,0 +1,63 @@
+\documentclass[a4paper, 12pt]{report}
+
+%? UTF8 accepts accents
+\usepackage[utf8]{inputenc}
+
+%? Package to use colors
+\usepackage{xcolor}
+\begin{document}
+  \textit{Jabbo}
+  \textbf{Naboo}
+  \textit{\textbf{Test}}
+
+  %? Italic unless the word is already in italic, in that case, it removes the italic
+  %? Word in Italic
+  \emph{Word}
+
+  %? Word in Normal
+  \emph{\emph{Word}}
+
+  %? Change the text color
+  \color{blue}
+  This is written in blue.
+  \color{red}
+  This is written in red.
+  \color{magenta}
+  This is written in magenta.
+
+  \color{black}
+  %? An alternative to \color but only changes inside the text that we pass as a parameter
+  \textcolor{red}{This is written using the command textcolor}
+
+  %? Changes the text background color
+  \colorbox{yellow}{This peace of text} has a yellow background
+
+  %? Font sizes
+  \tiny This \scriptsize tiny \footnotesize little \small sentence \normalsize has \large a \Large number \huge of \Huge words.
+  
+  \normalsize
+  
+  %? Lists
+  \begin{enumerate}
+    \item Separar gemas
+    \item Bater claras
+    \item ...
+  \end{enumerate}
+  
+  \begin{description}
+    \item[Energia:] 657 kJ
+    \item[Sódio:] 110 mg 
+    \item ...  
+  \end{description}
+
+  %? Paragraphs
+  %TODO check this section
+  Lorem ipsum dolor sit amet, agam officiis vis cu, te malis dicunt mel, duis eius accumsan eos ne. Qui tota noster eu, quod tamquam eum ea, quo eu vidit labore nemore. Cu duo affert reprehendunt. Has ea omittam praesent. No pro harum adipiscing inciderint, diceret corpora no nec, vis an eruditi scaevola indoctum. Partiendo constituam has ei, eos quem elit argumentum ne. Ne ius quas apeirian mnesarchum, facilisi facilisis mel eu.
+  
+  Primeira frase. \\
+  Segunda frase.  
+
+  %? Special Characters
+
+  \#, \%, \textbackslash, \$, \~a, \~{}a (and the same for \^{}), 
+  \end{document}
