@@ -11,7 +11,9 @@ let rec create_setence list = (
   | [] -> " "
   | h :: t -> 
     let randomIndex = Random.int (Array.length h) in
-      h.(randomIndex) ^ " " ^ create_setence t
+      h.(randomIndex) ^ " " ^ create_setence t;;
+      other instruction;
+    return of match;;
 );;
 
 print_string (create_setence list)

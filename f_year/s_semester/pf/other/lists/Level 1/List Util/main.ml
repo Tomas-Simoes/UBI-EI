@@ -10,7 +10,7 @@ let rec print_stringlist list = (
 );;
 
 let isOdd num = 
-  if num mod 2 == 0 then 
+  if num mod 2 = 0 then 
     true
   else 
     false
@@ -32,11 +32,11 @@ let rec count_odd list = (
 
 let rec revert list = (
   match list with
-    | [] -> []
-    | head::tail -> revert tail @ [head]
+  | [] -> []
+  | head::tail -> revert tail @ [head]
 );;
 
-let rec pallidroma list = (
+let pallidroma list = (
   match list with
   | [] | [_] -> true
   | _ -> list = revert list
@@ -45,13 +45,13 @@ let rec pallidroma list = (
 let rec all_uppercase list = (
   match list with
   | [] -> []
-  | head :: tail -> [String.uppercase_ascii head] @ all_uppercase tail
+  | head :: tail -> String.uppercase_ascii head :: all_uppercase tail
 );;
 
 let rec isSorted list order = (
   match list with
-    | [] | [_] -> 0
-    | h::h'::t -> order h' h + isSorted t order 
+  | [] | [_] -> 0
+  | h::h'::t -> compare h' h + isSorted t order 
 );;
 
 let rec remove_duplicate list = (
