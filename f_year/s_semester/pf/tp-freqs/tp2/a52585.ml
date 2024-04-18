@@ -20,7 +20,6 @@ let rec combina tuples_list = (
       in
         if s mod 2 <> 0 then ((s::new_odd, new_even))
         else (new_odd, s::new_even)
-      
 );;
 
 (*da para listas pares como para impares*)
