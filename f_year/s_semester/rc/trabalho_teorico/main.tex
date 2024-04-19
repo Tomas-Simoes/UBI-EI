@@ -12,43 +12,54 @@
 \usepackage[printonlyused]{acronym} % Pacote acronym aqui
 \usepackage{float}
 \usepackage{listings}
-\usepackage{tocbibind}
+% remove duplicate "index"
+\usepackage[nottoc]{tocbibind}
 \usepackage{natbib}
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{fix-cm}
 \usepackage{fourier}
 \usepackage[scaled=.92]{helvet}
-
-% DEFINIÇÃO DE CORES
-\definecolor{dark}{gray}{0.25}
-\definecolor{lgray}{gray}{0.9}
-\definecolor{dkblue}{rgb}{0,0.13,0.4}
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
+% show references names
+\usepackage{nameref}
 
 % CONFIGURAÇÕES HYPERREF
 \hypersetup{
-    colorlinks=true,
+    colorlinks=true,            
+    linkcolor=blue,            
+    citecolor=blue,             
+    urlcolor=blue,              
+    filecolor=blue,             
+    breaklinks=true,            
+    pdftitle={A Governancia da Internet},   
+    pdfauthor={Tomás Simões Duarte},           
+    pdfsubject=
+    {
+        As decisões no design e desenvolvimento 
+        de tecnologias que são necessárias para manter a Internet operacional 
+        com a implementação
+        de políticas novas em volta das mesmas
+    }, 
+    pdfkeywords={Governancia, Internet},   
 }
 
 % DEFINIÇÃO DE ACRÔNIMOS
 \begin{document}
 
 % Frontmatter
-\include{cover}
+\include{frontmatter/cover}
 \let\cleardoublepage\clearpage
 \tableofcontents
 
 % Mainmatter
 \acresetall
-\include{introduction}
-% \include{chap-2}
-% \include{chap-3}
-% \include{chap-4}
+\include{frontmatter/introduction}
+\include{mainmatter/whatisgovernance}
+\include{mainmatter/beggining}
+\include{mainmatter/governanceevolution}
 % \include{chap-5}
 % \include{chap-6}
 % \include{conc-trab-futuro}
-
+teste 1 2 \cite{musiani2013network}.
+\bibliography{references}
 \end{document}
