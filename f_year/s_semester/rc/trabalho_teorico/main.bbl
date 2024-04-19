@@ -1,0 +1,41 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Lukasik(2010)]{lukasik2010arpanet}
+Stephen Lukasik.
+\newblock Why the arpanet was built.
+\newblock \emph{IEEE Annals of the History of Computing}, 33\penalty0
+  (3):\penalty0 4--21, 2010.
+
+\bibitem[Mueller and Badiei(2020)]{mueller2020inventing}
+Milton~L Mueller and Farzaneh Badiei.
+\newblock Inventing internet governance: the historical trajectory of the
+  phenomenon and the field.
+\newblock \emph{Researching Internet Governance: Methods, Frameworks, Futures},
+  pages 59--83, 2020.
+
+\bibitem[Musiani(2013)]{musiani2013network}
+Francesca Musiani.
+\newblock Network architecture as internet governance.
+\newblock \emph{Internet Policy Review}, 2013.
+
+\bibitem[Ribeiro(2009)]{publicoPioneirosInternet}
+Susana~Almeida Ribeiro.
+\newblock Os pioneiros da internet em portugal.
+\newblock
+  \url{https://www.publico.pt/2009/10/30/tecnologia/noticia/os-pioneiros-da-internet-em-portugal-1407629},
+  2009.
+\newblock [Accessed 19-04-2024].
+
+\bibitem[Tictank(2020)]{Tictank}
+Tictank.
+\newblock O inicio da internet em portugal.
+\newblock
+  \url{https://tictank.pt/2020/10/29/o-inicio-da-internet-em-portugal/}, 2020.
+\newblock [Accessed 19-04-2024].
+
+\end{thebibliography}
