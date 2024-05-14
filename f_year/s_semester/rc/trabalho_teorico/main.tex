@@ -12,43 +12,62 @@
 \usepackage[printonlyused]{acronym} % Pacote acronym aqui
 \usepackage{float}
 \usepackage{listings}
-\usepackage{tocbibind}
+% remove duplicate "index"
+\usepackage[nottoc]{tocbibind}
 \usepackage{natbib}
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{fix-cm}
 \usepackage{fourier}
 \usepackage[scaled=.92]{helvet}
-
-% DEFINIÇÃO DE CORES
-\definecolor{dark}{gray}{0.25}
-\definecolor{lgray}{gray}{0.9}
-\definecolor{dkblue}{rgb}{0,0.13,0.4}
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
+% show references names
+\usepackage{nameref}
 
 % CONFIGURAÇÕES HYPERREF
 \hypersetup{
-    colorlinks=true,
+    colorlinks=true,            
+    linkcolor=black,            
+    citecolor=blue,             
+    urlcolor=blue,              
+    filecolor=blue,             
+    breaklinks=true,            
+    pdftitle={A Governança da Internet},   
+    pdfauthor={Tomás Simões Duarte},           
+    pdfsubject=
+    {
+        As decisões no design e desenvolvimento 
+        de tecnologias que são necessárias para manter a Internet operacional 
+        com a implementação
+        de políticas novas em volta das mesmas
+    }, 
+    pdfkeywords={Governança, Internet},   
 }
 
 % DEFINIÇÃO DE ACRÔNIMOS
 \begin{document}
 
 % Frontmatter
-\include{cover}
+\include{frontmatter/cover}
 \let\cleardoublepage\clearpage
 \tableofcontents
 
 % Mainmatter
 \acresetall
-\include{introduction}
-% \include{chap-2}
-% \include{chap-3}
-% \include{chap-4}
-% \include{chap-5}
-% \include{chap-6}
-% \include{conc-trab-futuro}
+\include{frontmatter/introduction}
+\include{mainmatter/whatisgovernance}
+\include{mainmatter/beggining}
+\include{mainmatter/governance_evolution}
+\include{mainmatter/organization}
+\include{mainmatter/portugal_case}
+\include{mainmatter/future}
+\include{mainmatter/conclusion}
 
+\nocite{mueller2020inventing}
+\nocite{musiani2013network}
+\nocite{lukasik2010arpanet}
+\nocite{publicoPioneirosInternet}
+\nocite{Tictank}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
 \end{document}
