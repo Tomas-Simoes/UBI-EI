@@ -1,0 +1,12 @@
+mov ah, 4FH
+mov al, 02
+mov bx, (03h -> texto, 13h -> modo gráfico)
+int 10h -> ligar em modo gráfico 
+
+(controlar os pixeis rgb)
+mov ah, 0ch -> ativar piixel
+mov al, cor -> selicionar cor [0, 15] 
+mov bh, 0
+mov cx, coluna - [0, 319]
+mov dx, linha [0, 199]
+int 10h
