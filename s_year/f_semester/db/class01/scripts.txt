@@ -1,0 +1,124 @@
+SELECT * FROM Ciclista;
+
+---
+
+SELECT Nome, Genero, Idade FROM Ciclista
+
+---
+
+SELECT Nome, Genero, Idade 
+FROM Ciclista
+WHERE Genero = 'M'
+
+---
+
+SELECT Nome, Genero, Idade 
+FROM Ciclista
+WHERE Genero = 'M' AND Idade >= 50 AND Idade <= 70
+
+---
+
+  SELECT Nome, Genero, Idade 
+  FROM Ciclista
+  WHERE Genero = 'M' AND Idade <= 25 OR Idade >= 70
+
+---
+
+SELECT Nome, Genero, Idade 
+FROM Ciclista
+WHERE Genero = 'M' AND Nome LIKE 'José%'
+
+---
+
+SELECT Nome, Genero, Idade 
+FROM Ciclista
+WHERE Genero = 'M' AND Nome LIKE '%José%'
+
+---
+
+SELECT DISTINCT Nome_Local 
+FROM Lugar
+
+---
+
+SELECT Nome_Local FROM Lugar
+
+--- 10
+
+SELECT c.*, l.Nome_Local
+FROM Ciclista c
+INNER JOIN  Lugar l ON l.idl = c.IDL_Residencia 
+
+--- 14
+
+SELECT c.IDC, c.Nome
+FROM Organizacao o
+INNER JOIN Ciclista c ON o.IDC = c.IDC
+WHERE o.Funcao = 'Organizador' OR o.Funcao = 'Coordenador'
+
+--- 15
+SELECT DISTINCT o1.IDC
+FROM Organizacao o1, Organizacao o2
+WHERE o1.IDC = o2.IDC AND o1.Funcao = 'Organizador' AND o2.Funcao = 'Coordenador'
+
+--- 16
+
+SELECT * FROM Organizacao
+EXCEPT
+SELECT * FROM Organizacao o WHERE o.Funcao <> 'Organizador'
+
+--- 18
+
+SELECT c.Nome, COUNT(c.IDC) AS Participacoes
+FROM Ciclista c
+INNER JOIN Participacao p ON p.IDC = c.IDC
+INNER JOIN Bicicleta b ON b.IDC = c.IDC
+GROUP BY c.Nome 
+HAVING COUNT(p.IDB) > 2
+
+
+--- 19
+
+SELECT c.Nome, COUNT(p.IDB) AS BicicletasUsadas
+FROM Ciclista c INNER JOIN Participacao p ON c.IDC = p.IDC
+GROUP BY c.Nome
+HAVING Count(p.IDB) = 1
+	
+--- 20
+
+SELECT b.Modelo, COUNT(b.IDC) AS VezesUsada
+FROM Bicicleta b, Ciclista C, Participacao P
+WHERE b.IDC = c.IDC AND c.IDC = p.IDC
+GROUP BY b.Modelo
+HAVING COUNT(b.IDC) > 1
+
+--- 22
+
+SELECT DISTINCT c.Nome, o.Funcao
+FROM Ciclista c, Participacao p, Organizacao o 
+WHERE 
+	c.IDC = o.IDC
+	AND o.Funcao = 'Organizador'
+	AND c.IDC NOT IN (
+	SELECT p.IDC
+	FROM Participacao
+	WHERE o.IDE = p.IDE
+)
+
+--- 23
+
+SELECT c.Nome
+FROM Ciclista c INNER JOIN Participacao p ON c.IDC = p.IDC
+WHERE NOT EXISTS (
+	SELECT IDE 
+	FROM Participacao
+	EXCEPT
+	SELECT IDE 
+	FROM Participacao
+	WHERE IDE = c.IDC
+)
+
+
+
+
+

@@ -1,0 +1,82 @@
+\section{Configurações de Roteamento}
+\label{sec:confroute}
+De modo a que as quatro "redes principais" da UBI, Gigapix Lisboa/Porto e Google
+se comunicassem de forma eficiente e confiável tivemos de implementar o roteamento entre
+essas redes através dos protocologos OSPF, RIP e Frame Relay.
+
+\subsection{Protocolo OSPF}
+Este é empregado pelo roteamento entre a rede da UBI e da rede da FCNN.
+
+Foi definido da seguinte forma:
+
+\vspace{3mm}
+\setlength{\tabcolsep}{20pt}
+\renewcommand{\arraystretch}{1.5}
+\noindent
+\begin{tabular}{ |l|l|l|}
+  \hline
+  \multicolumn{3}{|c|}{Roteamento OSPF}                               \\
+  \hline
+  Router                            & ID      & Rotas Conhecidas      \\
+  \hline
+  \multirow{2}{1em}{Gigapix Lisboa} & 1.1.1.1 & 193.136.66.0 (UBI)    \\
+                                    &         & 193.136.1.0 (Porto)   \\
+  \hline
+  \multirow{2}{1em}{Gigapix Porto}  & 2.2.2.2 & 193.136.66.4 (UBI)    \\
+                                    &         & 193.136.1.0 (Lisboa)  \\
+  \hline
+  \multirow{2}{1em}{UBI}            & 3.3.3.3 & 193.136.66.0 (Lisboa) \\
+                                    &         & 193.136.66.4 (Porto)  \\
+  \hline
+\end{tabular}
+\vspace{5mm}
+
+\subsection{Protocolo Frame Relay}
+Este tem como objetivo fazer a conexão entre os \textit{routers} da FCNN e da Google
+Foi definido da seguinte forma:
+
+\vspace{3mm}
+\setlength{\tabcolsep}{20pt}
+\renewcommand{\arraystretch}{1.5}
+\noindent
+\begin{tabular}{ |p{3cm}|p{3cm}|p{1cm}|}
+  \hline
+  \multicolumn{3}{|c|}{Roteamento do Frame-Relay} \\
+  \hline
+  Rota            & IP            & DLCI          \\
+  \hline
+  Lisboa - Google & 10.10.10.0/30 & 100/101       \\
+  Porto - Google  & 10.10.20.0/30 & 200/201       \\
+  Lisboa - Porto  & 10.10.30.0/30 & 300/301       \\
+
+  \hline
+\end{tabular}
+\vspace{5mm}
+
+\subsection{Protocolo RIP}
+Este funciona como um protocolo auxiliar do OSPF, de modo a garantir a
+comunicação entre os routers da Google, FCNN e UBI.
+Foi definido da seguinte forma:
+
+\vspace{3mm}
+\setlength{\tabcolsep}{20pt}
+\renewcommand{\arraystretch}{1.5}
+\noindent
+\begin{tabular}{ |p{2cm}|p{3.25cm}|}
+  \hline
+  \multicolumn{2}{|c|}{Roteamento RIP}                   \\
+  \hline
+  Router                            & Rotas Distribuidas \\
+  \hline
+  \multirow{3}{1em}{UBI}            & 10.0.0.0           \\
+                                    & 193.136.66.0       \\
+                                    & 193.136.67.0       \\
+  \hline
+  \multirow{2}{1em}{Gigapix Lisboa} & 10.0.0.0           \\
+                                    & 193.136.66.0       \\
+  \hline
+  \multirow{2}{1em}{Google}         & 10.0.0.0           \\
+                                    & 8.0.0.0            \\
+  \hline
+\end{tabular}
+\vspace{5mm}

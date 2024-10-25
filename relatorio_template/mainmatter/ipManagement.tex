@@ -1,0 +1,110 @@
+\section{Distribuição de IP's}
+\label{sec:distip}
+Este capítulo aborda o processo de planeamento e implementação da distribuição
+de IPs e máscaras na nossa infraestrutura. O objetivo é alcançar uma configuração eficiente e escalável,
+garantindo um desempenho otimizado.
+
+\subsection{Rede da UBI}
+Na rede da UBI a informação que tinhamos é que tinham de ser \textit{subnets} da rede \textit{10.0.0.0/16}.
+
+Devido ao tamanho da UBI e a quantidade de \textit{VLANs} que esta tem, tivemos de decidir qual
+seria a melhor máscara de modo a que não falta-se \textit{hosts} para cada departamento.
+
+Fizemos então a gestão na rede da UBI da seguinte forma:
+
+\vspace{3mm}
+\setlength{\tabcolsep}{20pt}
+\renewcommand{\arraystretch}{1.5}
+\noindent
+\begin{tabular}{ |p{3cm}|p{3cm}|p{5cm}|}
+  \hline
+  \multicolumn{3}{|c|}{Rede da UBI}                                         \\
+  \hline
+  VLAN            & IP               & IP Range                             \\
+  \hline
+  DI-Docentes     & 10.0.0.0/20      & 10.0.0.1 to 10.0.15.254              \\
+  DI-Geral        & 10.0.16.0/20     & 10.0.16.1 to 10.0.31.254             \\
+  D-Matemática    & 10.0.32.0/20     & 10.0.32.1 to 10.0.47.254             \\
+  ...             & ...              & ...                                  \\
+  EDURAM          & 10.0.192.0/20    & 10.0.224.1 to 10.0.239.254           \\
+  Private Servers & 10.0.240.0/20    & 10.0.240.1 to 10.0.255.254           \\
+  Public Servers  & 193.136.67.0/255 & \small193.136.67.1 to 193.136.67.254 \\
+  \hline
+\end{tabular}
+\vspace{2mm}
+
+Com as VLANs repartidas com uma máscara de rede /20 permite-nos ter 16 \textit{subnets}, com 4096 \textit{hosts} cada. \\
+
+\break
+Para os servidores da UBI, decidimos um IP dentro de cada uma da sua \textit{subnet}.
+
+\vspace{3mm}
+\setlength{\tabcolsep}{20pt}
+\renewcommand{\arraystretch}{1.5}
+\noindent
+\begin{tabular}{ |p{3cm}|p{3cm}|p{5cm}|}
+  \hline
+  \multicolumn{3}{|c|}{Servidores da UBI}      \\
+  \hline
+  Servidor    & IP             & Mask          \\
+  \hline
+  www.ubi.pt  & 193.163.67.208 & 255.255.255.0 \\
+  mail.ubi.pt & 193.163.67.208 & 255.255.255.0 \\
+  DNS UBI     & 10.0.240.2     & 255.255.240.0 \\
+  \hline
+\end{tabular}
+\vspace{5mm}
+
+\subsection{Rede da FCCN}
+Na rede da FCCN a informação que tinhamos é que tinham de ser \textit{subnets} da rede
+\textit{193.136.0.0/16}.
+
+Novamente para pouparmos o máximo de \textit{IP's} possiveis decidimos usar
+uma máscara de \textit{255.255.255.252} entre os \textit{routers} da
+Gigapix Lisboa, Gigapix Porto e UBI. Dessa forma em cada ligação só gastavamos 4 \textit{IP's}.
+
+Fizemos então a gestão da rede da seguinte forma:
+
+\vspace{3mm}
+\setlength{\tabcolsep}{20pt}
+\renewcommand{\arraystretch}{1.5}
+\noindent
+\begin{tabular}{ |p{3cm}|p{3cm}|p{1cm}|}
+  \hline
+  \multicolumn{3}{|c|}{Ligações do FCCN}   \\
+  \hline
+  Rota           & IP              & Hosts \\
+  \hline
+  UBI - Lisboa   & 193.163.66.0/30 & 2     \\
+  UBI - Porto    & 193.163.66.4/30 & 2     \\
+  Lisboa - Porto & 193.163.1.0/30  & 2     \\
+
+  \hline
+\end{tabular}
+\vspace{5mm}
+
+\break
+\subsection{Restantes Redes}
+Ainda precisámos de configurar a rede da Google e do ISPx. Para isso utilizamos os \textit{IP's} que foram fornecidos no enunciado.
+
+Para a rede do ISPx, foi usado o \textit{192.168.1.0/24}.
+
+Já para a Google, cada servidor tem a sua \textit{subnet} do \textit{8.8.0.0/16}
+
+\vspace{3mm}
+\setlength{\tabcolsep}{20pt}
+\renewcommand{\arraystretch}{1.5}
+\noindent
+\begin{tabular}{ |p{3cm}|p{2cm}|p{2cm}|}
+  \hline
+  \multicolumn{3}{|c|}{Servidores da Google}   \\
+  \hline
+  Servidor       & IP          & Mask          \\
+  \hline
+  www.google.com & 8.8.0.2     & 255.255.255.0 \\
+  gmail.com      & 8.8.200.111 & 255.255.255.0 \\
+  DNS Google     & 8.8.8.8     & 255.255.240.0 \\
+  \hline
+\end{tabular}
+\vspace{5mm}
+

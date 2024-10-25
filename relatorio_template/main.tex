@@ -1,0 +1,63 @@
+\documentclass[12pt,a4paper]{article}
+
+% PACOTES
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{makeidx}
+\usepackage{xspace}
+\usepackage{graphicx,color,times}
+\usepackage{fancyhdr}
+\usepackage{latexsym}
+\usepackage[printonlyused]{acronym} % Pacote acronym aqui
+\usepackage{float}
+\usepackage{listings}
+% remove duplicate "index"
+\usepackage[nottoc]{tocbibind}
+\usepackage{natbib}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fix-cm}
+\usepackage{fourier}
+\usepackage{array}
+\usepackage[scaled=.92]{helvet}
+% show references names
+\usepackage{nameref}
+
+
+% CONFIGURAÇÕES HYPERREF
+\hypersetup{
+    colorlinks=true,            
+    linkcolor=black,            
+    citecolor=blue,             
+    urlcolor=blue,              
+    filecolor=blue,             
+    breaklinks=true,            
+    pdftitle={A Governança da Internet},   
+    pdfauthor={Tomás Simões Duarte},           
+    pdfsubject=
+    {
+        PDF Subject
+    }, 
+    pdfkeywords={Governança, Internet},   
+}
+
+% DEFINIÇÃO DE ACRÔNIMOS
+\begin{document}
+
+% Frontmatter
+\include{frontmatter/cover}
+\let\cleardoublepage\clearpage
+\tableofcontents
+
+% Mainmatter
+\acresetall
+\include{frontmatter/introduction}
+\include{mainmatter/ipManagement}
+\nopagebreak
+\include{mainmatter/configurations}
+
+
+\bibliographystyle{plainnat}
+\end{document}
