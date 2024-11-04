@@ -1,0 +1,65 @@
+CREATE TABLE Priority_Class
+(
+  IDPriority NUMERIC(1) NOT NULL,
+  PriorityType CHAR(15) NOT NULL,
+  PRIMARY KEY (IDPriority)
+);
+
+CREATE TABLE State
+(
+  IDState NUMERIC(1) NOT NULL,
+  State CHAR(10) NOT NULL,
+  PRIMARY KEY (IDState)
+);
+
+CREATE TABLE Equipments
+(
+  IDEquipment NUMERIC(5) NOT NULL,
+  Name CHAR(25) NOT NULL,
+  IDState NUMERIC(1) NOT NULL,
+  PRIMARY KEY (IDEquipment),
+  FOREIGN KEY (IDState) REFERENCES State(IDState)
+);
+
+CREATE TABLE User_Type
+(
+  IDType NUMERIC(2) NOT NULL,
+  Prefix VARCHAR(2) NOT NULL,
+  IDPriority NUMERIC(1) NOT NULL,
+  PRIMARY KEY (IDType),
+  FOREIGN KEY (IDPriority) REFERENCES Priority_Class(IDPriority)
+);
+
+CREATE TABLE User
+(
+  IDUser CHAR(10) NOT NULL,
+  Email CHAR(40),
+  Phone NUMERIC(9) NOT NULL,
+  Penalizations INT NOT NULL,
+  IDType NUMERIC(2) NOT NULL,
+  IDPriority NUMERIC(1) NOT NULL,
+  PRIMARY KEY (IDUser),
+  FOREIGN KEY (IDType) REFERENCES User_Type(IDType),
+  FOREIGN KEY (IDPriority) REFERENCES Priority_Class(IDPriority)
+);
+
+CREATE TABLE Reservation
+(
+  IDReservation CHAR(8) NOT NULL,
+  Time TIME NOT NULL,
+  Date DATE NOT NULL,
+  Essential NUMERIC(1) NOT NULL,
+  IDUser CHAR(10) NOT NULL,
+  IDState NUMERIC(1) NOT NULL,
+  PRIMARY KEY (IDReservation),
+  FOREIGN KEY (IDUser) REFERENCES User(IDUser),
+  FOREIGN KEY (IDState) REFERENCES State(IDState)
+);
+
+CREATE TABLE Equipment_Requisition
+(
+  IDReservation CHAR(8) NOT NULL,
+  IDEquipment NUMERIC(5) NOT NULL,
+  FOREIGN KEY (IDReservation) REFERENCES Reservation(IDReservation),
+  FOREIGN KEY (IDEquipment) REFERENCES Equipments(IDEquipment)
+);
