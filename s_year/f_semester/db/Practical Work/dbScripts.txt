@@ -18,7 +18,7 @@ CREATE TABLE Equipments
   Name CHAR(25) NOT NULL,
   IDState NUMERIC(1) NOT NULL,
   PRIMARY KEY (IDEquipment),
-  FOREIGN KEY (IDState) REFERENCES State(IDState)
+  CONSTRAINT FK_Equipment_IDState FOREIGN KEY (IDState) REFERENCES State(IDState)
 );
 
 CREATE TABLE User_Type
@@ -27,10 +27,10 @@ CREATE TABLE User_Type
   Prefix VARCHAR(2) NOT NULL,
   IDPriority NUMERIC(1) NOT NULL,
   PRIMARY KEY (IDType),
-  FOREIGN KEY (IDPriority) REFERENCES Priority_Class(IDPriority)
+  CONSTRAINT FK_UserType_IDPriority FOREIGN KEY (IDPriority) REFERENCES Priority_Class(IDPriority)
 );
 
-CREATE TABLE User
+CREATE TABLE Users
 (
   IDUser CHAR(10) NOT NULL,
   Email CHAR(40),
@@ -39,8 +39,8 @@ CREATE TABLE User
   IDType NUMERIC(2) NOT NULL,
   IDPriority NUMERIC(1) NOT NULL,
   PRIMARY KEY (IDUser),
-  FOREIGN KEY (IDType) REFERENCES User_Type(IDType),
-  FOREIGN KEY (IDPriority) REFERENCES Priority_Class(IDPriority)
+  CONSTRAINT FK_Users_IDType FOREIGN KEY (IDType) REFERENCES User_Type(IDType),
+  CONSTRAINT FK_Users_IDPriority FOREIGN KEY (IDPriority) REFERENCES Priority_Class(IDPriority)
 );
 
 CREATE TABLE Reservation
@@ -52,14 +52,15 @@ CREATE TABLE Reservation
   IDUser CHAR(10) NOT NULL,
   IDState NUMERIC(1) NOT NULL,
   PRIMARY KEY (IDReservation),
-  FOREIGN KEY (IDUser) REFERENCES User(IDUser),
-  FOREIGN KEY (IDState) REFERENCES State(IDState)
+  CONSTRAINT FK_Reservation_IDUser FOREIGN KEY (IDUser) REFERENCES User(IDUser),
+  CONSTRAINT FK_Reservation_IDState FOREIGN KEY (IDState) REFERENCES State(IDState)
 );
+
 
 CREATE TABLE Equipment_Requisition
 (
   IDReservation CHAR(8) NOT NULL,
   IDEquipment NUMERIC(5) NOT NULL,
-  FOREIGN KEY (IDReservation) REFERENCES Reservation(IDReservation),
-  FOREIGN KEY (IDEquipment) REFERENCES Equipments(IDEquipment)
+  CONSTRAINT FK_ER_IDReservation FOREIGN KEY (IDReservation) REFERENCES Reservation(IDReservation),
+  CONSTRAINT FK_ER_IDEquipment FOREIGN KEY (IDEquipment) REFERENCES Equipments(IDEquipment)
 );
