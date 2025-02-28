@@ -23,21 +23,29 @@
     <main>
         <div class="form">
             Complete o formulário seguinte para se inscrever para o evento:
-            <form action="" method="post">
-                <label for="name">Nome Completo:</label> <input name="name" type="text">
-                <label for="email">Email: </label> <input name="email" type="email">
-                <label for="tel">Telefone:</label> <input name="tel" type="tel">
+            <form action="javascript:;" onsubmit="onSubmit()" method="post" id="form">
+                <label for="name">Nome Completo:</label> <input name="name" type="text" maxlength="50" minlength="3" required>
+                <label for="email">Email: </label> <input name="email" type="email" required>
+                <label for="tel">Telefone:</label> <input name="tel" type="tel" required>
                 <label for="personal_page">Página pessoal: </label>Página Pessoal: <input name="personal_page" type="url">
-                <label for="postal_code">Código Postal:</label> <input name="postal_code" type="pattern">
+                <label for="postal_code">Código Postal:</label> <input name="postal_code" type="pattern" required>
                 <label for="type">Tipo de Ingresso:</label> 
-                <select id="type">
+                <select id="type" required>
                     <option value="type_1">Ingresso 1</option>
                     <option value="type_2">Ingresso 2</option>
                     <option value="type_3">Ingresso 3</option>
                     <option value="type_4">Ingresso 4</option>
                 </select>
+
+                <input type="submit" value="Submit">
             </form>
         </div>
+
+        <script src="script.js"></script>
     </main>
+
+    <footer>
+        <p>&copy; Simões</p> 
+    </footer>
 </body>
 </html>

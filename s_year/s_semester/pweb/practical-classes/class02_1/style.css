@@ -39,3 +39,12 @@ body {
 .form input {
     width: 200px;
 }
+
+footer {
+    color: white;
+    text-align: center;
+
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+}

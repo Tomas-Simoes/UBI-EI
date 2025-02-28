@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../lib/Aleatorio.h"
+#include "../../lib/Aleatorio.h"
 #include "introduction.h"
 
 int main() {
