@@ -28,17 +28,22 @@ int main(int argc, char* argv[]){
     if(argc == 1) {
         streamCopy(stdin, stdout, false, false);
     } else {
-        for (int i = 1; i < argc; i++)
+        for (int i = 1; argv[i][0] == '-'; i++)
         {
-            if(argv[i][0] != '-') {
-                startIndex = i;
-                break;
+            switch (argv[i][1])
+            {
+                case 'T':
+                    showControlCh = true;
+                    break;
+                case 'n':
+                    printNumberLine = true;
+                    break;
+                default:
+                    fprintf(stderr, "Fatal error: Invalid parameter %s.", argv[i]);
+                    return 0;
             }
-            else {
-                if (strcmp(argv[i], "-T") == 0) showControlCh = true;
-                else if (strcmp(argv[i], "-n") == 0) printNumberLine = true;
-                else fprintf(stderr, "Fatal error: Invalid parameter %s.", argv[i]);
-            }
+
+            startIndex = i + 1;
         }
         
         for (int i = startIndex; i < argc; i++)
