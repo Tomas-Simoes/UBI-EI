@@ -27,6 +27,19 @@ int main()
     printf("Maior nota: %d\n", maiorNotaFinal(Lista));
     printf("Maior nota recursivamente: %d\n", maiorNotaFinalRec(Lista, Lista->Elemento.notaFinal));
 
-    printf("Melhor aluno: %d\n", melhorAluno(Lista));
-    printf("Melhor aluno recursivamente: %d\n", melhorAlunoRec(Lista, NULL));
+    if (Lista != NULL)
+    {
+        printf("Melhor aluno: %d\n", melhorAluno(Lista));
+
+        printf("Melhor aluno recursivamente: ");
+        mostrarElementoLista(melhorAlunoRec(Lista));
+
+        printf("Pior aluno recursivamente: ");
+        mostrarElementoLista(piorAlunoRec(Lista));
+
+        printf("Pior aluno menor de 10: ");
+        mostrarElementoLista(piorAlunoMenorK(Lista, 10));
+    }
+
+    printf("Media das notas: %f\n", mediaFinal(Lista));
 }

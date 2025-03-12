@@ -1,0 +1,26 @@
+membro(X, [X|T]).
+membro(X, [_|T]) :- membro(X, T).
+
+concatena([], L2, L2).
+concatena([X| T], L2, [X|L3]) :- concatena(T, L2, L3).
+
+inverter([], L3) :- writeln(L3).
+inverter(L1, L2) :- append(T, [Last], L1), append(L2, [Last], L3t), inverter(T, L2).
+
+remover(_, [], []).
+remover(EL, [EL|L2], L2).
+remover(EL, [H|T], [H|L3]) :- remover(EL, T, L3).
+
+sublista([], L2).
+sublista([H1, T1], [H2|T2]) :- sublista([H1, T1], T2).
+sublista([H1|T1], [H1|T2]) :- sublista(T1, T2).
+
+intercalar([], [], L3).
+intercalar([H1|T1], [H2|T2], [H1, H2|L3]) :- intercalar(T1, T2, L3).
+
+intercalarInv([], [], L3) :- writeln(L3).
+intercalarInv([H1|T1], [H2|T2], L3) :- intercalarInv(T1, T2, [H1, H2|L3]).
+
+tamanho([], S).
+tamanho([H1|T], S) :- S is S+1, tamanho(T, S).
+

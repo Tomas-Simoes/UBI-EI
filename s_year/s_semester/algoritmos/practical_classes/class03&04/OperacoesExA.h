@@ -11,7 +11,11 @@ int quantidadeNotaFinalMaior(PNodoLista L, int N);
 int maiorNotaFinal(PNodoLista L);
 int maiorNotaFinalRec(PNodoLista L, int highest);
 int melhorAluno(PNodoLista L);
-int melhorAlunoRec(PNodoLista L, PNodoLista bestStudent);
+INFOLista melhorAlunoRec(PNodoLista L);
+INFOLista piorAlunoRec(PNodoLista L);
+double mediaFinal(PNodoLista L);
+INFOLista piorAlunoMenorK(PNodoLista L, int k);
+PNodoLista removerNota(PNodoLista, int nota);
 
 /* ------------------------------------------------------- */
 /* -------------- implementa��o das fun��es -------------- */
@@ -140,10 +144,10 @@ int maiorNotaFinalRec(PNodoLista L, int highest)
 
 int melhorAluno(PNodoLista L)
 {
-    int highestTE;
-    PNodoLista bestStudent;
-
+    PNodoLista bestStudent = L;
     L = L->Prox;
+
+    int highestTE = bestStudent->Elemento.notasTE[0] + bestStudent->Elemento.notasTE[1];
 
     while (L != NULL)
     {
@@ -161,27 +165,115 @@ int melhorAluno(PNodoLista L)
     return bestStudent->Elemento.numAluno;
 }
 
-int melhorAlunoRec(PNodoLista L, PNodoLista bestStudent)
+INFOLista melhorAlunoRec(PNodoLista L)
 {
-    if (L == NULL)
+    INFOLista best;
+
+    if (L->Prox == NULL)
     {
-        return bestStudent->Elemento.numAluno;
+        return L->Elemento;
     }
 
-    if (bestStudent == NULL)
-    {
-        bestStudent = L;
-        L = L->Prox;
-    }
+    best = melhorAlunoRec(L->Prox);
 
     int sumL = L->Elemento.notasTE[0] + L->Elemento.notasTE[1];
-    int sumBest = bestStudent->Elemento.notasTE[0] + bestStudent->Elemento.notasTE[1];
+    int sumBest = best.notasTE[0] + best.notasTE[1];
+
     if (sumL > sumBest)
     {
-        return melhorAlunoRec(L->Prox, L);
+        return L->Elemento;
     }
     else
     {
-        return melhorAlunoRec(L->Prox, bestStudent);
+        return best;
     }
+}
+
+INFOLista piorAlunoRec(PNodoLista L)
+{
+    INFOLista worst;
+
+    if (L->Prox == NULL)
+    {
+        return L->Elemento;
+    }
+
+    worst = piorAlunoRec(L->Prox);
+
+    int sumL = L->Elemento.notasMTP[0] + L->Elemento.notasMTP[1];
+    int sumWorst = worst.notasMTP[0] + worst.notasMTP[1];
+
+    if (sumL < sumWorst)
+    {
+        return L->Elemento;
+    }
+    else
+    {
+        return worst;
+    }
+}
+
+double mediaFinal(PNodoLista L)
+{
+    if (L == NULL)
+    {
+        return 0;
+    }
+
+    int sum = 0;
+    int size = 0;
+
+    while (L != NULL)
+    {
+        sum += L->Elemento.notaFinal;
+        size++;
+
+        L = L->Prox;
+    }
+
+    return sum / size;
+}
+
+INFOLista piorAlunoMenorK(PNodoLista L, int k)
+{
+    INFOLista worst;
+
+    if (L->Prox == NULL)
+    {
+        return L->Elemento;
+    }
+
+    worst = piorAlunoMenorK(L->Prox, k);
+
+    int sumL = L->Elemento.notasMTP[0] + L->Elemento.notasMTP[1];
+    int sumWorst = worst.notasMTP[0] + worst.notasMTP[1];
+
+    if (sumL < k && sumL < sumWorst)
+    {
+        return L->Elemento;
+    }
+    else if (sumWorst < k)
+    {
+        return worst;
+    }
+    else
+    {
+        return criarElementoLista();
+    }
+}
+
+PNodoLista removerNota(PNodoLista L, int nota)
+{
+    while (L != NULL && L->Elemento.notaFinal == nota)
+    {
+        PNodoLista P = L;
+        L = L->Prox;
+
+        libertarLista(P);
+    }
+
+    PNodoLista ant = L;
+    L = L->Prox;
+
+    return L;
 }
