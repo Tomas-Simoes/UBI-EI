@@ -7,3 +7,4 @@ casado(joao, susana).
 irma(elvira, basilio).
 
 casado(Y, X) :- discontiguous casado(X, Y).
+

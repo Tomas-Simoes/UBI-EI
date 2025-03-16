@@ -24,3 +24,23 @@ intercalarInv([H1|T1], [H2|T2], L3) :- intercalarInv(T1, T2, [H1, H2|L3]).
 tamanho([], S).
 tamanho([H1|T], S) :- S is S+1, tamanho(T, S).
 
+ultimo([], 0).
+ultimo([H|[]], H).
+ultimo([_|T], X) :- ultimo(T, X).
+
+soma([], 0).
+soma([H], H).
+soma([H|T], S) :- soma(T, S1), S=S1+H.
+
+maior([H], H).
+maior([H|T], B) :- maior(T, B1), (B1>H -> B=B1; B=H).
+
+menores([H], N) :- (H < N).
+menores([H|T], N) :- menores(T, N), (H<N).
+
+duplicar([H], [H,H]).
+duplicar([H|T], [H,H|L]) :- duplicar(T, L).
+
+dividir([], 0, [], []).
+dividir([E1|T1], 0, S, [E1|R]) :- dividir(T1, 0, S, R).
+dividir([E1|T1], P, [E1|S], R) :- P1 is P - 1, dividir(T1, P1, S, R).
