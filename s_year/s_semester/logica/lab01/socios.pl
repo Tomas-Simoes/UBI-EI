@@ -1,10 +1,18 @@
 socio(susana).
 socio(joao).
 socio(basilio).
-sosio(elviria).
+socio(elviria).
 
 casado(joao, susana).
+
 irma(elvira, basilio).
 
-casado(Y, X) :- discontiguous casado(X, Y).
+irmao(Y, X) :- irma(X, Y).
 
+/* 
+Questions:  
+    ? socio(S) -> S=Susana, S=joao, S=basilio, S=elviria
+    ? irmao(basilio,  elvira) -> true
+    ? socio(miquelina) -> false
+    ? casado(S, susana) -> S=joao
+*/
