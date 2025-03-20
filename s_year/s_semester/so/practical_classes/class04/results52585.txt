@@ -1,0 +1,27 @@
+
+8192
+ real	0m0,018s user	0m0,013s sys	0m0,005s  
+4096
+ real	0m0,019s user	0m0,013s sys	0m0,006s  
+2048
+ real	0m0,020s user	0m0,012s sys	0m0,008s  
+1024
+ real	0m0,023s user	0m0,018s sys	0m0,005s  
+512
+ real	0m0,032s user	0m0,015s sys	0m0,017s  
+256
+ real	0m0,047s user	0m0,020s sys	0m0,027s  
+128
+ real	0m0,078s user	0m0,028s sys	0m0,050s  
+64
+ real	0m0,140s user	0m0,029s sys	0m0,111s  
+32
+ real	0m0,260s user	0m0,051s sys	0m0,209s  
+16
+ real	0m0,507s user	0m0,094s sys	0m0,410s  
+8
+ real	0m0,989s user	0m0,144s sys	0m0,845s  
+4
+ real	0m1,934s user	0m0,295s sys	0m1,639s  
+2
+ real	0m3,861s user	0m0,470s sys	0m3,390s  

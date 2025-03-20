@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "so2025.h"
+
+int main(int argc, char *argv[])
+{
+    clock_t startTime, endTime;
+    float timeUsed;
+
+    char *fileName = argv[1];
+    int blocksize = atoi(argv[2]);
+
+    if (argc < 3)
+    {
+        perror("Invalid parameters. Excepted fileName and blocksize.\n");
+        return 0;
+    }
+
+    // printf("Opening file %s with blocksize %d\n", fileName, blocksize);
+
+    startTime = clock();
+    double d = whiteSpacePercent(fileName, blocksize);
+    endTime = clock();
+
+    timeUsed = (float)(endTime - startTime) / (float)CLOCKS_PER_SEC;
+
+    // printf("\n(Operation done in %f s)  Got %.2f%% of whitespaces.\n", timeUsed, d);
+}/* ex71.c : compilar cc -Wall -c ex71.c -o ex71 */
+#include <sys/stat.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "so2025.h"
+
+double whiteSpacePercent(char *fileName, int blockSize)
+{
+    int file = open(fileName, O_RDONLY);
+    int n;
+
+    if (file == -1)
+    {
+        perror("opening file");
+    }
+
+    char *buffer = malloc(blockSize);
+    int characterCount = 0;
+
+    int whiteSpaceCount = 0;
+
+    while ((n = read(file, buffer, blockSize)) > 0)
+    {
+        if (n == -1)
+        {
+            perror("reading file");
+        }
+
+        characterCount += n;
+        for (int i = 0; i < n; i++)
+        {
+            if (buffer[i] == ' ')
+            {
+                whiteSpaceCount++;
+            }
+        }
+    }
+
+    free(buffer);
+    close(file);
+
+    // printf("Got %d whitespaces from %d characters.\n", whiteSpaceCount, n);
+
+    return ((double)whiteSpaceCount / characterCount) * 100;
+}

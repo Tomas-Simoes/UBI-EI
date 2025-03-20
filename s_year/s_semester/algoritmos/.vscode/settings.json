@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "operacoesbasicaspilhasexa.h": "c",
+        "operacoespilhasexa.h": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c"
+    }
+}

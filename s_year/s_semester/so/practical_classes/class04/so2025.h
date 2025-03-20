@@ -1,0 +1,1 @@
+double whiteSpacePercent(char *nome, int blockSize);
