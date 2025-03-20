@@ -1,0 +1,116 @@
+{
+    "estgv": {
+      "anoLetivo": {
+        "ano": "20232024",
+        "curso": [
+          {
+            "id": "EI",
+            "anoCurricular": [
+              {
+                "id": "1",
+                "disciplina": {
+                  "nome": "Aplicações Internet",
+                  "ects": 8,
+                  "docentes": {
+                    "teorica": {
+                      "NM": 1,
+                      "nome": "Carlos"
+                    },
+                    "pratica": null
+                  }
+                }
+              },
+              {
+                "id": "2",
+                "disciplina": {
+                  "nome": "Programação Web",
+                  "ects": 4,
+                  "docentes": {
+                    "teorica": {
+                      "NM": 1,
+                      "nome": "Nuno"
+                    },
+                    "pratica": {
+                      "NM": 2,
+                      "nome": "Filipe"
+                    }
+                  }
+                }
+              },
+              {
+                "id": "3",
+                "disciplina": {
+                  "nome": "Programação no Servidor",
+                  "ects": 6,
+                  "docentes": {
+                    "teorica": {
+                      "NM": 1,
+                      "nome": "Nuno"
+                    },
+                    "pratica": {
+                      "NM": 2,
+                      "nome": "Francisco"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "IW",
+            "anoCurricular": [
+              {
+                "id": "1",
+                "disciplina": {
+                  "nome": "Sistemas",
+                  "ects": 8,
+                  "docentes": {
+                    "teorica": {
+                      "NM": 3,
+                      "nome": "Pedro"
+                    },
+                    "pratica": {
+                      "NM": 2,
+                      "nome": "Filipe"
+                    }
+                  }
+                }
+              },
+              {
+                "id": "2",
+                "disciplina": {
+                  "nome": "Redes",
+                  "ects": 3,
+                  "docentes": {
+                    "teorica": {
+                      "NM": 1,
+                      "nome": "Filipe"
+                    },
+                    "pratica": {
+                      "NM": 4,
+                      "nome": "Pedro"
+                    }
+                  }
+                }
+              },
+              {
+                "id": "3",
+                "disciplina": {
+                  "nome": "Matemática",
+                  "ects": 8,
+                  "docentes": {
+                    "teorica": {
+                      "NM": 3,
+                      "nome": "Filipe"
+                    },
+                    "pratica": null
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+  

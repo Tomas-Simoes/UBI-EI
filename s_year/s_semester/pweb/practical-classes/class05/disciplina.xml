@@ -1,0 +1,68 @@
+<estgv>
+    <anoLetivo ano="20232024">
+        <curso id="EI">
+            <anoCurricular id="1">
+                <disciplina>
+                    <nome>Aplicações Internet</nome>
+                    <ects>8</ects>
+                    <docentes>
+                        <teorica NM="1">Carlos</teorica>
+                        <pratica/>
+                    </docentes>
+                </disciplina>
+            </anoCurricular>
+            <anoCurricular id="2">
+                <disciplina>
+                    <nome>Programação Web</nome>
+                    <ects>4</ects>
+                    <docentes>
+                        <teorica NM="1">Nuno</teorica>
+                        <pratica NM="2">Filipe</pratica>
+                    </docentes>
+                </disciplina>
+            </anoCurricular>
+            <anoCurricular id="3">
+                <disciplina>
+                <nome>Programação no Servidor</nome>
+                <ects>6</ects>
+                <docentes>
+                <teorica NM="1">Nuno</teorica>
+                <pratica NM="2">Francisco</pratica>
+                </docentes>
+                </disciplina>
+            </anoCurricular>
+        </curso>
+        <curso id="IW">
+            <anoCurricular id="1">
+                <disciplina>
+                    <nome>Sistemas</nome>
+                    <ects>8</ects>
+                    <docentes>
+                        <teorica NM="3">Pedro</teorica>
+                        <pratica NM="2">Filipe</pratica>
+                    </docentes>
+                </disciplina>
+            </anoCurricular>
+            <anoCurricular id="2">
+                <disciplina>
+                    <nome>Redes</nome>
+                    <ects>3</ects>
+                    <docentes>
+                        <teorica NM="1">Filipe</teorica>
+                        <pratica NM="4">Pedro</pratica>
+                    </docentes>
+                </disciplina>
+            </anoCurricular>
+            <anoCurricular id="3">
+                <disciplina>
+                    <nome>Matemática</nome>
+                    <ects>8</ects>
+                    <docentes>
+                        <teorica NM="3">Filipe</teorica>
+                        <pratica/>
+                    </docentes>
+                </disciplina>
+            </anoCurricular>
+        </curso>
+    </anoLetivo>
+</estgv>

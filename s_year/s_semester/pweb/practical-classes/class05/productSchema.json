@@ -1,0 +1,47 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Product",
+    "description": "A product from Acme's catalog",
+    "type": "object",
+    "properties": {
+        "Product": {
+            "type": "object",
+            "properties": {
+                "ProductID": {
+                    "type": "string"
+                },
+                "Category": {
+                    "type": "string"
+                },
+                "ProductName": {
+                    "type": "string"
+                },
+                "ProductType": {
+                    "type": "string"
+                },
+                "Price": {
+                    "type": "string"
+                },
+                "Class": {
+                    "type": "string"
+                },
+                "Company": {
+                    "type": "string"
+                },
+                "Provider": {
+                    "type": "object",
+                    "properties": {
+                        "Name": {
+                            "type": "string"
+                        },
+                        "City": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["Name", "City"]
+                }
+            },
+        "required": ["ProductID", "ProductName", "Price", "Provider"]
+        }
+    }
+}

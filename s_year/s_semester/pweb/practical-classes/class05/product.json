@@ -1,0 +1,15 @@
+{
+    "Product": {
+      "ProductID": "123",
+      "Category": "bicycle",
+      "ProductName": "Bicicleta de 3 Rodas",
+      "ProductType": "Utilitário",
+      "Price": "120",
+      "Class": "Sport",
+      "Company": "ABC Int.",
+      "Provider": {
+        "Name": "João",
+        "City": "Viseu"
+      }
+    }
+  }
