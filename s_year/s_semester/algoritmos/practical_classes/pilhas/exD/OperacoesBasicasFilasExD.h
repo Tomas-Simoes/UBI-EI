@@ -4,27 +4,27 @@ typedef struct{
   float notasMTP[2];  // notas dos mini-testes práticos: [0.0, 2.0]
   float notasTE[2];	  // notas dos testes escritos: [0.0, 8.0]
   int   notaFinal;	  // nota final, que é o valor arredondado da soma das 4 notas: { 0, …, 20 }
-} INFOPilha;
+}INFOFila;
 
 
 /* ------------------------------------------------------- */
 /* ---- protótipos/headers das funções da biblioteca ----- */
 /* ------------------------------------------------------- */
 
-void mostrarElementoPilha (INFOPilha);
+void mostrarElementoFila (INFOFila);
 
-INFOPilha criarElementoPilha ();
+INFOFila criarElementoFila ();
 
-// comparação de 2 elementos do tipo DADOSP, segundo o campo numAluno (chave)
+// comparação de 2 elementos do tipo INFOFila, segundo o campo numAluno (chave)
 // devolve -1 se primeiro < segundo, 0 se iguais, 1 se primeiro > segundo
-int compararElementosPilha (INFOPilha, INFOPilha);
+int compararElementosFila (INFOFila, INFOFila);
 
 
 /* ------------------------------------------------------- */
 /* -------------- implementação das funções -------------- */
 /* ------------------------------------------------------- */
 
-void mostrarElementoPilha (INFOPilha X)
+void mostrarElementoFila (INFOFila X)
 {
   printf("%d - ", X.numAluno);
   printf("%.2f - %.2f - ", X.notasMTP[0], X.notasMTP[1]);
@@ -32,9 +32,9 @@ void mostrarElementoPilha (INFOPilha X)
   printf("%2d\n",  X.notaFinal);
 }
 
-INFOPilha criarElementoPilha ()
+INFOFila criarElementoFila ()
 {
-  INFOPilha X;
+  INFOFila X;
   float soma;
   X.numAluno = gerarNumeroInteiro(70000, 75000);
   X.notasMTP[0] = gerarNumeroReal(0.0, 2.0);
@@ -46,9 +46,9 @@ INFOPilha criarElementoPilha ()
   return X;
 }
 
-// comparação de 2 elementos do tipo DADOSP, segundo o campo numAluno (chave)
-// devolve -1 se X < Y, 0 se X = Y, 1 se X > Y
-int compararElementosPilha (INFOPilha X, INFOPilha Y)
+// comparação de 2 elementos do tipo INFOFila, segundo o campo numAluno (chave)
+//   devolve -1 se X < Y, 0 se X = Y, 1 se X > Y
+int compararElementosFila (INFOFila X, INFOFila Y)
 {
   if (X.numAluno > Y.numAluno)
     return 1;

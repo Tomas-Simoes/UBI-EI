@@ -8,6 +8,7 @@
 //   - mostra a Pilha do topo para o fundo
 void mostrarPilha(PNodoPilha);
 PNodoPilha criarPilhaAleatoria(int A, int B);
+INFOPilha fundoPilha(PNodoPilha *S);
 
 /* ------------------------------------------------------- */
 /* -------------- implementa��o das fun��es -------------- */
@@ -58,11 +59,34 @@ int mostrarSegundo(PNodoPilha *P, INFOPilha *el)
 
   if (*P == NULL)
   {
-
     return 1;
   }
   else
   {
     return 0;
   }
+}
+
+INFOPilha fundoPilha(PNodoPilha *S)
+{
+  INFOPilha el;
+  PNodoPilha Aux;
+
+  Aux = criarPilha();
+
+  while (pilhaVazia(*S) == 0)
+  {
+    Aux = push(topo(*S), Aux);
+    *S = pop(*S);
+  }
+
+  el = topo(Aux);
+
+  while (pilhaVazia(Aux) == 0)
+  {
+    *S = push(topo(Aux), *S);
+    Aux = pop(Aux);
+  }
+
+  return el;
 }
