@@ -59,5 +59,9 @@ PNodoFila inverterFila(PNodoFila F)
 
   while (pilhaVazia(P) == 0)
   {
+    F = juntar(topo(P), F);
+    P = pop(P);
   }
+
+  return F;
 }

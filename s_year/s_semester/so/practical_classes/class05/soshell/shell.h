@@ -7,12 +7,25 @@
 #include <unistd.h>
 #include <pthread.h>
 #include <ctype.h>
+#include <sys/wait.h>
 
-void parse(char *buf, char **args);
+int parse(char *buf, char **args);
 
-void execute(char **args);
+void execute(int *numargs, char **args);
 
-int builtin (char **args);
+int builtin(int *numargs, char **args);
+
+int lastArg(int *numargs, char **args);
+
+void copy(char *font, char *destination, char *buffsize);
+
+// socalc.c
+
+void calc(char *value1, char *op, char *value2);
+void bits(char *value1, char *op, char *value2);
+
+// sotypes.c
+int isJPG(char *filePath);
 
 /* constantes que podem tornar uteis*/
 
