@@ -1,8 +1,7 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../../lib/Aleatorio.h"
+#include "../../../lib/Aleatorio.h"
 #include "OperacoesBasicasPilhasExA.h"
 #include "EADPilha.h"
 #include "OperacoesPilhasExA.h"
@@ -26,4 +25,12 @@ int main()
     printf("\nFundo da pilha é: ");
     mostrarElementoPilha(X);
   }
+
+  printf("\nPilha Atual: \n");
+  mostrarPilha(Pilha);
+
+  printf("\nPilha com primeiro e ultimo trocado: \n");
+  // swap first and last
+  swapFirstLast(&Pilha);
+  mostrarPilha(Pilha);
 }

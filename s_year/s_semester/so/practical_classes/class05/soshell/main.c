@@ -46,30 +46,38 @@ Stack dirStack;
 int main()
 {
   int len;
-  char linha[1024]; /* um comando */
+  char command[1024]; /* um comando */
   char *args[64];   /* com um maximo de 64 argumentos */
   initializeStack(&dirStack);
 
   strcpy(prompt, "SOSHELL: Introduza um comando : prompt>");
+  
   while (1)
   {
     printf("%s", prompt);
-    if (fgets(linha, 1023, stdin) == NULL)
+
+    // command is null
+    if (fgets(command, 1023, stdin) == NULL)
     {
       printf("\n");
       exit(0);
     }
-    len = strlen(linha);
+    
+    len = strlen(command);
+    
     if (1 == len)
       continue; /* linha é apenas \n */
-    if (linha[len - 1] == '\n')
-      linha[len - 1] = '\0';
 
-    int numargs = parse(linha, args); /* particiona a string em argumentos */
+    // formats command with string terminator
+    if (command[len - 1] == '\n')
+      command[len - 1] = '\0';
+
+    int numargs = parse(command, args); /* particiona a string em argumentos */
 
     if (!builtin(&numargs, args))
       execute(&numargs, args); /* executa o comando */
   }
+  
   return 0;
 }
 
