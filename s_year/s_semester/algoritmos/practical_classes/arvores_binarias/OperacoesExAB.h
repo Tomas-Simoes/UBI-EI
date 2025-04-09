@@ -18,6 +18,9 @@ int maiorNotaFinal2(PNodoAB T);
 // Ex. 11
 int quantidadeNos1Filho(PNodoAB T);
 
+// Ex. 12
+int nivelDoElemento(INFOAB X);
+
 /* ------------------------------------------------------- */
 /* -------------- implementa��o das fun��es -------------- */
 /* ------------------------------------------------------- */
@@ -133,4 +136,12 @@ int quantidadeNos1Filho(PNodoAB T)
     // arvore só com filho na direita
     if (T->Esquerda == NULL && T->Direita != NULL)
         return 1 + quantidadeNos1Filho(T->Direita);
+}
+
+int nivelDoElemento(PNodoAB T, INFOAB X)
+{
+    if (pesquisarAB(X, T) == 0)
+    {
+        return -1;
+    }
 }

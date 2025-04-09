@@ -27,7 +27,10 @@ void bits(char *value1, char *op, char *value2);
 // sotypes.c
 int isJPG(char *filePath);
 
-/* constantes que podem tornar uteis*/
+// redirect.c
+int dupandclose(int fd, int fdold, int numargs, char *args[]);
+int redirects(int numargs, char *args[]);
 
+/* constantes que podem tornar uteis*/
 #define BG 0
 #define FG 1
