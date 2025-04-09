@@ -90,3 +90,29 @@ INFOPilha fundoPilha(PNodoPilha *S)
 
   return el;
 }
+
+void swapFirstLast(PNodoPilha *S) {
+  INFOPilha top = topo(*S);
+  *S = pop(*S);
+
+  PNodoPilha Aux = criarPilha();
+  
+  while (pilhaVazia(*S) == 0)
+  {
+    Aux = push(topo(*S), Aux);
+    *S = pop(*S);
+  }
+  
+  INFOPilha last = topo(Aux);
+  Aux = pop(Aux);
+
+  *S = push(top, *S);
+  
+  while (pilhaVazia(Aux) == 0)
+  {
+    *S = push(topo(Aux), *S);
+    Aux = pop(Aux);
+  }
+
+  *S = push(last, *S);
+}

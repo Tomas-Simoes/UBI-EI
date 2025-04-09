@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -55,4 +54,12 @@ int main()
 
     printf("O elemento mais prox e %d\n", elementoMaisProx(&Pilha));
   }
+
+  printf("\nPilha Atual: \n");
+  mostrarPilha(Pilha);
+
+  printf("\nPilha com primeiro e ultimo trocado: \n");
+  // swap first and last
+  swapFirstLast(&Pilha);
+  mostrarPilha(Pilha);
 }
