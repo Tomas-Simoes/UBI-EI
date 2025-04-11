@@ -3,6 +3,11 @@
         "operacoesbasicaspilhasexa.h": "c",
         "operacoespilhasexa.h": "c",
         "stdio.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "operacoesexabp.h": "c",
+        "eadarvorebinariapesquisa.h": "c",
+        "abporniveis.h": "c",
+        "operacoesbasicasexabp.h": "c",
+        "aleatorio.h": "c"
     }
 }
