@@ -134,3 +134,21 @@ int quantidadeNos1Filho(PNodoAB T)
     if (T->Esquerda == NULL && T->Direita != NULL)
         return 1 + quantidadeNos1Filho(T->Direita);
 }
+
+int nivelDoElemento(PNodoAB T, INFOAB el, int n) {
+    if(T == NULL) {
+        return 0;
+    }
+
+    if(compararElementosAB(T->Elemento, el) == 1) {
+        return n;
+    }
+
+    int leftResult = nivelDoElemento(T->Esquerda, el, n + 1);
+
+    if (leftResult != 0) {
+        return leftResult;
+    } else {
+        return nivelDoElemento(T->Direita, el, n + 1);
+    }
+}

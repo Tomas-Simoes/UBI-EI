@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #include "../../lib/Aleatorio.h"
 #include "OperacoesBasicasExAB.h"
@@ -12,7 +13,7 @@ int main()
 {
   PNodoAB T;
 
-  T = gerarABAleatoria(4, 7);
+  T = gerarABAleatoria(10, 15);
   printf("Mostrar em ordem: \n");
   mostrarEmOrdemAB(T);
 
@@ -35,4 +36,6 @@ int main()
     printf("Maior nota final v2: %d\n", maiorNotaFinal2(T));
 
   printf("\n\nQuantidade de nós com 1 filho: %d\n", quantidadeNos1Filho(T));
+
+  printf("\nNivel do elemento: %d", nivelDoElemento(T, (((T->Direita)->Direita)->Elemento), 0));
 }

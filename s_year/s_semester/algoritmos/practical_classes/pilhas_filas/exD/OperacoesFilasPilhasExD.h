@@ -28,40 +28,16 @@ void mostrarFila(PNodoFila Q)
   }
 }
 
-PNodoFila criarFilaAleatoria(int A, int B)
-{
-  PNodoFila F;
-  int N, i;
-  INFOFila X;
+PNodoFila criarFilaAleatoria(int A, int B) {
+  int size = gerarNumeroInteiro( A, B);
 
-  N = gerarNumeroInteiro(A, B);
-  F = criarFila();
+  PNodoFila F = criarFila();
 
-  for (i = 0; i < N; i++)
+  for (int i = 0; i < size; i++)
   {
-    X = criarElementoFila();
-    F = juntar(X, F);
+    INFOFila el = criarElementoFila();
+    F = juntar(el, F);
   }
-
-  return F;
-}
-
-PNodoFila inverterFila(PNodoFila F)
-{
-  PNodoPilha P;
-  P = criarPilha;
-
-  while (filaVazia(F) == 0)
-  {
-    P = push(frente(F), P);
-    F = remover(F);
-  }
-
-  while (pilhaVazia(P) == 0)
-  {
-    F = juntar(topo(P), F);
-    P = pop(P);
-  }
-
+  
   return F;
 }

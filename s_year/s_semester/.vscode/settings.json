@@ -3,6 +3,13 @@
         "stdio.h": "c",
         "stdlib.h": "c",
         "operacoesbasicasexa.h": "c",
-        "cstdlib": "c"
+        "cstdlib": "c",
+        "operacoespilhasexa.h": "c",
+        "operacoesbasicaspilhasexa.h": "c",
+        "eadpilha.h": "c",
+        "operacoesexab.h": "c",
+        "eadarvorebinaria.h": "c",
+        "operacoesexa.h": "c",
+        "eadlista.h": "c"
     }
 }
