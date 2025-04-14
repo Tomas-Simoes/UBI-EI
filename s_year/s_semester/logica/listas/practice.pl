@@ -90,8 +90,16 @@ divide(List, List1, List2) :-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% nivela(List, LeveledList)	[a, b, [c,d], [[e]], f] -> [a,b,c,d,e,f]
-% not completed
 
+nivelar([], []).
+nivelar([[]|Tail], Nivelada) :-
+    nivelar(Tail, Nivelada).
+nivelar([[X|Tx]|Tail], Nivelada) :-
+       nivelar([X|Tx], TxNivelada),
+       nivelar(Tail, TailNivelada),
+       append(TxNivelada, TailNivelada, Nivelada).
+nivelar([H|T], [H|Nivelada]) :- nivelar(T, Nivelada).
+       
 nivela([[]|T], List) :-
     nivela(T, List).
 nivela([[X|Y]|T], List) :- 
@@ -100,3 +108,130 @@ nivela([[X|Y]|T], List) :-
 	append(List1, List2, List).
 nivela([H|T], [H|List]) :-
     nivela(T, List).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% consecutive_members(X, Y, List)	returns true if: x and y belong to List and appear consecutively 
+
+consecutive_members(X, Y, [X,Y|_]).
+consecutive_members(X, Y, [_,_|Tail]) :- consecutive_members(X,Y,Tail).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% code(Phrase, EncodedPhrase, Delta)	'abc01' -> 'cde34' for delta = 3	moves every letter plus Delta 	
+
+code(F, FCode, Delta) :-
+    name(F, FAscii),
+    encoder(FAscii, Delta, AsciiEncoded, encode),
+    name(FCode, AsciiEncoded).
+
+decode(F, FCode, Delta) :-
+	name(FCode, AsciiEncoded),
+    encoder(AsciiDecoded, Delta, AsciiEncoded, decode),
+    name(F, AsciiDecoded).
+    
+encoder([], _, [], _).
+encoder([HAscii|TAscii], Delta, [HEncoder|AsciiEncoded], encode) :-
+    HEncoder is HAscii + Delta,
+    encoder(TAscii, Delta, AsciiEncoded, encode).
+encoder([HDecoded|AsciiDecoded], Delta, [HEncoded|TEncoded], decode) :-
+    HDecoded is HEncoded - Delta,
+    encoder(AsciiDecoded, Delta, TEncoded, decode).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% depth(El, NestedList, Depth)	gives the depth of the first occurence of an element in a list
+%%									depth being how much nested arrays it has to search to find el
+%%									depth(3, [3, [[2, [3, 4]], [5, 6]]], Depth)	-> 	Depth = 3
+depth(_, [], 0).
+
+depth(El, [[El|_]|_], 2).
+depth(El, [[_|TNested]|Tail], Depth) :-
+    depth(El, TNested, NestedDepth),
+    (NestedDepth \= 0 ->
+    	Depth is 1 + NestedDepth ;
+    	depth(El, Tail, Depth)
+    ).
+
+depth(El, [El|_], 1).
+depth(El, [_|Tail], Depth) :- 
+    depth(El, Tail, Depth).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% duplicate(L, LL)	duplicates every element on list	[1,2,3] -> [1,1,2,2,3,3]
+
+duplicate([], []).
+duplicate([H|Tail], [H,H|DuplicateList]) :-
+    duplicate(Tail, DuplicateList).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% separate(List, tuple(Numbers, Letters))	separetes every element on list into the tuple Numbers and Letters
+
+
+separate([], ([], [])).
+separate([Head|Tail], ([Head|Numbers], Letters)) :-
+	number(Head),
+    separate(Tail, (Numbers, Letters)).
+separate([Head|Tail], (Numbers, [Head|Letters])) :-
+    separate(Tail, (Numbers, Letters)).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% plays some juicy 1D Conways Game of Life (sick)
+
+rule(0,0,0).
+rule(0,1,1).
+rule(1,0,1).
+rule(1,1,0).
+
+next_generation([], []).
+next_generation([H], [H]).
+next_generation([H1, H2|Tail], [NextCell|NextGen]) :-
+	rule(H1, H2, NextCell),
+	next_generation([H2|Tail], NextGen).
+
+conways_game(0, _, []).
+conways_game(NumGen, Gen, [NextGen|Result]) :-
+    next_generation(Gen, NextGen),
+    NextNumGen is NumGen - 1,
+    conways_game(NextNumGen, NextGen, Result).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% invertAll(List, Inverted)	inverts everything	[1,[2,3],4] -> [4,[3,2],1]
+
+invertNested([], []).
+invertNested([[HNested|TNested]|TList], Inv) :-
+    invertNested([HNested|TNested], NestedInv),
+    invertNested(TList, ListInv),
+    append(ListInv, [NestedInv],Inv).
+invertNested([HList|TList], Inv) :-
+    invertNested(TList, ListInv),
+    append(ListInv, [HList], Inv).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% merge(OrderedList1, OrderedList2, MergedList)	merges two ordered lists into one ordered list
+
+smaller(X, Y) :- X =< Y.
+
+merge([], [], []).
+merge([], L, L).
+merge(L, [], L).
+merge([H1|T1], [H2|T2], [H1|Res]) :-
+    smaller(H1, H2),
+   	merge(T1, [H2|T2], Res).
+merge([H1|T1], [H2|T2], [H2|Res]) :-
+	smaller(H2, H1),
+    merge([H1|T1], T2, Res).
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% separate(Obj, List, BeforeObj, AfterObj)		for Obj = * 	[1,2,3,4,*,a,b,c,d] -> [1,2,3,4] and [a,b,c,d]
+
+separate(_, [], [], []).
+separate(Obj, [H|T], [H|BeforeObj], AfterObj) :-
+    Obj \= H,
+    separate(Obj, T, BeforeObj, AfterObj).
+separate(Obj, [Obj|T], [], T).
+
+
+
+
+
+
+
+
