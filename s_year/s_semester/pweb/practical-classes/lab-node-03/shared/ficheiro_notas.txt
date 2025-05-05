@@ -1,0 +1,20 @@
+[
+  {
+    "codigo": 1,
+    "nomeProfessor": "Joao",
+    "nomeDisciplina": "disciplina1",
+    "nota": 10
+  },
+  {
+    "codigo": 2,
+    "nomeProfessor": "Daniel",
+    "nomeDisciplina": "disciplina1",
+    "nota": 20
+  },
+  {
+    "codigo": 3,
+    "nomeProfessor": "yesu",
+    "nomeDisciplina": "disciplina2",
+    "nota": 15
+  }
+]
