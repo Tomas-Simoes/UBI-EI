@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class MainViewController implements Initializable {
-
     @FXML
     TextField txfA;
 

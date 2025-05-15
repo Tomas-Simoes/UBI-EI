@@ -10,7 +10,7 @@
 CC=cc
 FLAGS=-c -Wall
 LIBS=-lm
-OBS=main.o execute.o parse.o socopy.o socalc.o sotypes.o redirect.o
+OBS=main.o execute.o parse.o socopy.o socalc.o sotypes.o redirect.o threads.o
 
 #Alvo por defeito é o primeiro
 all :  soshell
@@ -29,6 +29,8 @@ sotypes.o : shell.h sotypes.c
 	$(CC) $(FLAGS) sotypes.c
 redirect.o: shell.h redirect.c
 	$(CC) $(FLAGS) redirect.c
+threads.o: shell.h threads.c
+	$(CC) $(FLAGS) threads.c
 soshell : $(OBS)
 	$(CC)  -o soshell  $(OBS) $(LIBS)
 clean limpar:

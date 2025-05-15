@@ -1,0 +1,9 @@
+eFilhoDe(teresa,belmira).
+eFilhoDe(teresa,manuel).
+eFilhoDe(joao,manuel).
+eFilhoDe(joao,ana).
+eFilhoDe(bruno,ana).
+eFilhoDe(manuel,antonio).
+eFilhoDe(hugo,antonio).
+eFilhoDe(hugo,ana).
+eFilhoDe(jose,luis).

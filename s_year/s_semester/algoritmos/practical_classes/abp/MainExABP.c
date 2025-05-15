@@ -39,4 +39,6 @@ int main()
   printf("Nivel da folha mais proxima: %d\n", nivelDaFolhaMaisProxima(T, 0));
   printf("Nivel da folha mais proxima (PROF): %d\n", nivelDaFolhaMaisProxima_PROF(T, 0));
   printf("Nivel da folha mais longe: %d", levels);
+
+  // Ex. 15
 }

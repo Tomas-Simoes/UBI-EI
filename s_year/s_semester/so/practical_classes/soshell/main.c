@@ -47,11 +47,11 @@ int main()
 {
   int len;
   char command[1024]; /* um comando */
-  char *args[64];   /* com um maximo de 64 argumentos */
+  char *args[64];     /* com um maximo de 64 argumentos */
   initializeStack(&dirStack);
 
   strcpy(prompt, "SOSHELL: Introduza um comando : prompt>");
-  
+
   while (1)
   {
     printf("%s", prompt);
@@ -62,9 +62,9 @@ int main()
       printf("\n");
       exit(0);
     }
-    
+
     len = strlen(command);
-    
+
     if (1 == len)
       continue; /* linha é apenas \n */
 
@@ -77,7 +77,7 @@ int main()
     if (!builtin(&numargs, args))
       execute(&numargs, args); /* executa o comando */
   }
-  
+
   return 0;
 }
 
@@ -180,6 +180,39 @@ int builtin(int *numargs, char **args)
   if (strcmp(args[0], "isjpg") == 0)
   {
     printf("File %s JPG", isJPG(args[1]) ? "is" : "is not");
+    return 1;
+  }
+
+  if (strcmp(args[0], "aviso") == 0)
+  {
+    pthread_t th;
+    aviso_t *ptr = (aviso_t *)malloc(sizeof(aviso_t));
+
+    strcpy(ptr->msg, args[1]);
+    ptr->tempo = atoi(args[2]);
+
+    pthread_create(&th, NULL, avisoWrapper, (void *)ptr);
+
+    return 1;
+  }
+
+  if (strcmp(args[0], "socpthread") == 0)
+  {
+    pthread_t th;
+    copy_t *ptr = (copy_t *)malloc(sizeof(copy_t));
+
+    ptr->font = strdup(args[1]);
+    ptr->destination = strdup(args[2]);
+    ptr->buffsize = strdup(args[3]);
+
+    pthread_create(&th, NULL, copyWrapper, (void *)ptr);
+
+    return 1;
+  }
+
+  if (strcmp(args[0], "InfoCopias") == 0)
+  {
+    printCopyLogs();
     return 1;
   }
 

@@ -1,48 +1,57 @@
 #include <stdio.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <errno.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include "shell.h"
+#include <fcntl.h>
+#include <unistd.h>
 
 int BUFFSIZE;
 
-void ioCopy(int IN, int OUT);
+int ioCopy(int IN, int OUT);
 
-void copy(char *font, char *destination, char *buffsize)
+int copy(char *font, char *destination, char *buffsize)
 {
     int fdIn = open(font, O_RDONLY);
-    int fdOut = open(destination, O_WRONLY);
+    int fdOut = open(destination, O_WRONLY | O_CREAT | O_TRUNC, 0644);
     BUFFSIZE = atoi(buffsize);
 
     if (fdIn == -1 || fdOut == -1)
     {
         perror("Error opening files");
+        if (fdIn != -1)
+            close(fdIn);
+        if (fdOut != -1)
+            close(fdOut);
+        return 0;
     }
 
-    ioCopy(fdIn, fdOut);
+    int success = ioCopy(fdIn, fdOut);
 
-    printf("Lowlevel copy ended.\n");
+    close(fdIn);
+    close(fdOut);
+    return success ? 1 : 0;
 }
 
-void ioCopy(int IN, int OUT)
+int ioCopy(int IN, int OUT) // 👈 Return int
 {
     int n;
     char *buffer = malloc(BUFFSIZE);
+    int ok = 1;
 
     while ((n = read(IN, buffer, BUFFSIZE)) > 0)
     {
         if (write(OUT, buffer, n) != n)
         {
             perror("Erro de escrita!\n");
-            return;
+            ok = 0;
+            break;
         }
     }
 
     if (n < 0)
+    {
         perror("Erro de leitura!\n");
-};
+        ok = 0;
+    }
+
+    free(buffer);
+    return ok;
+}
