@@ -75,7 +75,9 @@ int main()
     int numargs = parse(command, args); /* particiona a string em argumentos */
 
     if (!builtin(&numargs, args))
+    {
       execute(&numargs, args); /* executa o comando */
+    }
   }
 
   return 0;
@@ -213,6 +215,30 @@ int builtin(int *numargs, char **args)
   if (strcmp(args[0], "InfoCopias") == 0)
   {
     printCopyLogs();
+    return 1;
+  }
+
+  if (strcmp(args[0], "maior") == 0)
+  {
+    biggestFile(args[1], args[2]);
+    return 1;
+  }
+
+  if (strcmp(args[0], "setx") == 0)
+  {
+    execPermission(args[1]);
+    return 1;
+  }
+
+  if (strcmp(args[0], "removerl") == 0)
+  {
+    removeReadPermission(args[1]);
+    return 1;
+  }
+
+  if (strcmp(args[0], "sols") == 0)
+  {
+    dirInfo(args[1]);
     return 1;
   }
 

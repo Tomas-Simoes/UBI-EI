@@ -49,6 +49,12 @@ void *avisoWrapper(void *args);
 void *copyWrapper(void *args);
 void printCopyLogs();
 
+// fileutils.c
+void biggestFile(char *file1, char *file2);
+void execPermission(char *file);
+void removeReadPermission(char *file);
+void dirInfo(char *dirName);
+
 /* constantes que podem tornar uteis*/
 #define BG 0
 #define FG 1

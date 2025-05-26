@@ -5,6 +5,7 @@
 
 void execute(int *numargs, char **args)
 {
+  printf("%s", args[0]);
   int pid, status;
   int code = lastArg(numargs, args);
 

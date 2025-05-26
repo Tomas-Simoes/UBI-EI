@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tables.Controller">
+   <children>
+      <TableView fx:id="table" editable="true" layoutX="19.0" layoutY="83.0" prefHeight="234.0" prefWidth="435.0">
+        <columns>
+          <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Food" />
+          <TableColumn fx:id="calciumColumn" prefWidth="90.0" text="Calcium (mg)" />
+            <TableColumn fx:id="weightColumn" prefWidth="77.0" text="Weight (g)" />
+            <TableColumn fx:id="waterColumn" prefWidth="77.0" text="Water (%)" />
+            <TableColumn fx:id="energyColumn" prefWidth="91.0" text="Energy (kcal)" />
+        </columns>
+      </TableView>
+      <Button layoutX="210.0" layoutY="334.0" mnemonicParsing="false" onAction="#onButtonPressed" text="Button" />
+      <ToggleButton layoutX="80.0" layoutY="42.0" mnemonicParsing="false" onAction="#onToggle" text="Toggle Left" />
+      <ToggleButton layoutX="184.0" layoutY="42.0" mnemonicParsing="false" onAction="#onToggle" text="Toggle Center" />
+      <ToggleButton layoutX="302.0" layoutY="42.0" mnemonicParsing="false" onAction="#onToggle" text="Toggle Right" />
+   </children>
+</AnchorPane>
