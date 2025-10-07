@@ -1,0 +1,8 @@
+{
+    "name": "tc-labs",
+    "image": "docker.io/debian",
+    "workspaceFolder": "/workspaces",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind",
+    "postCreateCommand": "uname -a && apt update && apt install opam -y && opam init -y && opam update && opam install dune -y && opam install merlin -y && opam install ocp-indent -y && opam install utop -y && opam install ocaml-lsp-server -y && opam install ocamlformat -y",
+    "extensions": ["ocamllabs.ocaml-platform"],
+}

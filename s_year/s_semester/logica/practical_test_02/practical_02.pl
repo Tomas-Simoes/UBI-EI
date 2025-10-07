@@ -36,6 +36,13 @@ comprimento_impar(List) :-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Ex. 3		TODO sort the final standings
+
+% calculateFinalResults([
+%     [monaco, [alonso, montoya, coulthard, barrichello, schumacher, fisichelella, massa, albers]],
+%     [unitedStates, [schumacher, barrichello, monteiro, karthikeyan, albers, frisacher]],
+%     [mola, [massa, schumacher, barrichello, button, trulli, albers, montoya, alonso, webber, monteiro, speed, sato]]
+% ]).
+
 pontos(1, 10).
 pontos(2, 8).
 pontos(3, 6).

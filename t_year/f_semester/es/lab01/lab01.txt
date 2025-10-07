@@ -1,0 +1,50 @@
+1- Fazer um software vai além de escrever código, 
+já que tem uma fase de planeamento, design, teste, 
+documentação e manutenção.
+
+2- O software generico é desenvolvive para um mercado
+amplo, sem um cliente especifico em mente. Já o
+personalizado é o contrario
+
+3- Um software profissional precisa ser escalavel, 
+ter uma boa usabilidade, ser eficiente e ser seguro
+
+4- Independente do tipo de software, todos os softwares
+precisam dos pontos acima para serem considerados bons 
+softwares 
+
+5- Apesar destes sistemas protegerem vidas também podem
+invadir privacidade se usados de forma abusiva. Os 
+desenvolvedores devem sempre pensar e seguir as 
+metricas de seguranca e privacidade 
+
+6- A imagem é vista como diferentes intrepretações
+do mesmo requisito e serve para explicar como 
+diferentes pessoas podem ter visões diferentes do mesmo
+sistema.
+
+7- Ao longo do tempo o software irá precisar de atualizações
+seja por conta das tecnologias evoluirem, algum erro no sistema ou
+simplesmente por atualização da plataforma para uma melhor
+versão
+
+8- Para um engenheiro de software, que o trabalho vai muito
+além de escrever código, já que é preciso criatividade, 
+interação com o cliente arquitetura entre outros que 
+os sistemas que automatização não são tão bons a fazer.
+O que acredito que va ser substituido são as 
+tarefas mais repetitivas do sistema de desenvolvivmento
+de um software como os testes, depuração etc...
+
+9- 
+Vantagens: Geração rapida de código, sugestões de código e boas práticas,
+apoio de debug
+Desvantagens: Pode causar erros ou sugestões incorretas, 
+questões de segurança já que o codigo pode ter vulnerabilidades
+
+10- Acredito que os engenheiros de software irao focar
+mais em arquitetura, design e analise do que em tarefas
+repetivas. Irá ser necessário mais pensamento critico 
+para resolução de problemas complexos e menos necessidade
+de escrever código repetitivo e o teste do mesmo.
+

@@ -22,5 +22,5 @@ int parse(char *ptrLinha, char **args)
     cnt++;
   }
   *args = (char *)NULL; /* o ultimo argumento e. NULL */
-  return cnt - 1;
+  return cnt;
 }

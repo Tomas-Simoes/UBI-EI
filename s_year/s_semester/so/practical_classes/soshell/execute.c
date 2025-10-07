@@ -3,6 +3,12 @@
 */
 #include "shell.h"
 
+#define MAX_COMMANDS 4
+
+char *safe[MAX_COMMANDS] = {"ls", "cat", "date", "top"};
+
+int safeexec(char *command);
+
 void execute(int *numargs, char **args)
 {
   printf("%s", args[0]);
@@ -19,13 +25,17 @@ void execute(int *numargs, char **args)
   if (pid == 0)
   {
     *numargs = redirects(*numargs, args);
-
-    execvp(*args, args); /* NOTE: as versoes execv() e
-                          * execvp() de execl() sao uteis quando */
-    perror(*args);       /* o numero de argumentos nao e. conhecido.
-                          * Os argumentos de  */
-    exit(1);             /* execv() e execvp() sao o nome do ficheiro
-                          * a ser executado e um */
+    if (safeexec(args[0]) == 1)
+      execvp(*args, args);
+    else
+    {
+      printf("Command invalido\n");
+      return; // NOTE: as versoes execv() e
+    } // execvp() de execl() sao uteis quando
+    perror(*args); /* o numero de argumentos nao e. conhecido.
+                    * Os argumentos de  */
+    exit(1);       /* execv() e execvp() sao o nome do ficheiro
+                    * a ser executado e um */
   } /* vector de strings que contem os
      * argumentos. O ultimo argument */
 
@@ -38,6 +48,16 @@ void execute(int *numargs, char **args)
   return;
 }
 
+int safeexec(char *command)
+{
+  for (int i = 0; i < MAX_COMMANDS; i++)
+  {
+    if (strcmp(safe[i], command) == 0)
+      return 1;
+  }
+
+  return 0;
+}
 int lastArg(int *numargs, char **args)
 {
   if (args[*numargs - 1][0] == '&')

@@ -85,3 +85,17 @@ char *get_binary(int decimal_num)
 
     return &binary[index + 1];
 }
+
+void printBits(tipo aNumber, tipo mascara)
+{
+    while (mascara > 0)
+    {
+        if ((aNumber & mascara) == 0)
+            putchar('0');
+        else
+            putchar('1');
+        mascara = mascara >> 1;
+    }
+
+    putchar('\n');
+}

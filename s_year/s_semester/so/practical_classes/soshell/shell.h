@@ -22,6 +22,8 @@ typedef struct
     char *buffsize;
 } copy_t;
 
+typedef unsigned short tipo;
+
 int parse(char *buf, char **args);
 
 void execute(int *numargs, char **args);
@@ -36,6 +38,7 @@ int copy(char *font, char *destination, char *buffsize);
 
 void calc(char *value1, char *op, char *value2);
 void bits(char *value1, char *op, char *value2);
+void printBits(tipo aNumber, tipo mascara);
 
 // sotypes.c
 int isJPG(char *filePath);

@@ -242,5 +242,18 @@ int builtin(int *numargs, char **args)
     return 1;
   }
 
+  if (strcmp(args[0], "printbits") == 0)
+  {
+    tipo num = (tipo)atoi(args[1]); // Convert string to unsigned short
+    tipo mask = 0x8000;
+
+    printf("\nIn bits: ");
+    printBits(num, mask);
+    printf("Hexadecimal: %04x\n", num);
+    printf("Octal: %o\n", num);
+
+    return 1;
+  }
+
   return 0;
 }
