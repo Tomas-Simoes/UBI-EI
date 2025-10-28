@@ -50,12 +50,22 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/btnBDSave"
+        android:layout_width="161dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="128dp"
+        android:text="Save to Cloud"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnLocalSave"
         android:layout_width="161dp"
         android:layout_height="49dp"
         android:layout_marginEnd="124dp"
         android:layout_marginBottom="80dp"
-        android:text="Save"
+        android:text="Local Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -70,8 +80,8 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ScrollView
-        android:layout_width="352dp"
-        android:layout_height="427dp"
+        android:layout_width="361dp"
+        android:layout_height="381dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"

@@ -29,7 +29,7 @@ public class SummaryActivity extends AppCompatActivity {
         resultView = findViewById(R.id.resultView);
         contributorsTextView = findViewById(R.id.contributorsTextView);
         btnHome = findViewById(R.id.btnHome);
-        btnSave = findViewById(R.id.btnSave);
+        btnSave = findViewById(R.id.btnLocalSave);
 
         int numContributors = getIntent().getIntExtra("numContributors", 0);
 

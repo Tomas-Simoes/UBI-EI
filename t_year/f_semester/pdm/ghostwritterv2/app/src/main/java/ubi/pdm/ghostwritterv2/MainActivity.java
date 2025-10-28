@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAdd;
     private Button btnFinish;
     private Button btnSettings;
+    private Button btnAuthors;
+
     private TextInputEditText inputArea;
     private TextView resultView;
     private TextView contributorsTextView;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnAdd = findViewById(R.id.btnAdd);
+        btnAuthors = findViewById(R.id.btnAuthors);
         btnFinish = findViewById(R.id.btnFinish);
         btnSettings = findViewById(R.id.btnSettings);
 
@@ -71,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-
         btnAdd.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ContributionActivity.class);
             intent.putExtra("numContributors", numContributors);
@@ -84,5 +86,11 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("numContributors", numContributors);
             summaryLauncher.launch(intent);
         });
+
+        btnAuthors.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AuthorsActivity.class);
+            startActivity(intent);
+        });
+
     }
 }

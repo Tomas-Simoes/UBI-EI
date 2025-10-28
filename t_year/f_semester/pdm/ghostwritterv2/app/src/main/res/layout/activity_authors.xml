@@ -33,7 +33,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
         app:boxBackgroundColor="#3A3A3A"
         app:boxBackgroundMode="filled"
@@ -41,48 +41,63 @@
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusTopStart="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:boxStrokeColor="#8f5bb5"
+        app:layout_constraintTop_toBottomOf="@id/text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputAuthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:hint="Enter your name"
+            android:inputType="textPersonName"
+            android:textColor="#E0E0E0"
+            android:textColorHint="#AAAAAA"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnAdd"
+        android:id="@+id/btnAddAuthor"
         android:layout_width="161dp"
         android:layout_height="49dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="164dp"
-        android:text="Add contribute"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout" />
-
-    <Button
-        android:id="@+id/btnSettings"
-        android:layout_width="161dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="236dp"
-        android:text="Settings"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout" />
-
-    <Button
-        android:id="@+id/btnFinish"
-        android:layout_width="161dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="348dp"
         android:layout_marginEnd="124dp"
-        android:text="Finish"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout" />
+        android:layout_marginBottom="480dp"
+        android:text="Add author"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/btnAuthors"
+        android:id="@+id/btnHome"
         android:layout_width="161dp"
         android:layout_height="49dp"
-        android:layout_marginTop="292dp"
         android:layout_marginEnd="124dp"
-        android:text="Authors"
+        android:layout_marginBottom="424dp"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:layout_width="361dp"
+        android:layout_height="381dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/authorsView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="There is no authors for now..."
+            android:textColor="#8f5bb5"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

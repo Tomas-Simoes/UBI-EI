@@ -132,7 +132,6 @@ void draw(void)
 
     glLineWidth(10.0f);
 
-    // Fixed: Draw the astroid curve as LINE_LOOP with correct vertex count
     glDrawArrays(GL_LINE_LOOP, 0, 1000);
 
     glDisableVertexAttribArray(0);
@@ -183,7 +182,7 @@ int main(void)
         glfwPollEvents();
 
         if (delta < 10)
-            delta += 0.01;
+            delta += 0.5;
         else
             delta = 0.01;
 

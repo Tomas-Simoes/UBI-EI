@@ -9,6 +9,7 @@
     android:background="#2b2b2b"
     tools:context=".MainActivity">
 
+    <!-- Title -->
     <TextView
         android:id="@+id/text"
         android:layout_width="0dp"
@@ -28,6 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Text input -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="0dp"
@@ -48,48 +50,59 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputTextArea"
             android:layout_width="match_parent"
-            android:layout_height="491dp"
+            android:layout_height="430dp"
             android:gravity="top|start"
-            android:hint="Write something..."
+            android:hint="Write your thoughts here..."
             android:inputType="textMultiLine"
             android:maxLines="6"
             android:padding="12dp"
             android:scrollbars="vertical"
             android:textColor="@android:color/white"
-            android:textColorHint="#40BB86FC" />
+            android:textColorHint="#80BB86FC" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/authorsSpinner"
+        android:layout_width="240dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#8f5bb5"
+        android:popupBackground="#3A3A3A"
+        android:spinnerMode="dropdown"
+        android:theme="@style/SpinnerWhiteTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayout" />
 
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="161dp"
         android:layout_height="49dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="12dp"
-        android:text="Add contribute"
+        android:layout_marginTop="16dp"
+        android:text="Add contribution"
+        app:layout_constraintTop_toBottomOf="@id/authorsSpinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/contributorsTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-
         android:fontFamily="sans-serif-condensed"
         android:shadowColor="#80000000"
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="4"
-        android:text="0 ghostwriters have\ncontributed!"
+        android:text="0 ghostwriters have\ncontributed so far!"
         android:textAlignment="center"
         android:textColor="#8f5bb5"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@id/btnAdd"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnAdd" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
