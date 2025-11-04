@@ -1,0 +1,124 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#302821"
+    tools:context=".MainActivity">
+
+    <!-- Game title -->
+
+    <!-- Background image -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="80dp"
+        android:text="DUNGEON ROLL"
+        android:textColor="#FFFFFF"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imgLevels"
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="Levels Image"
+        android:src="@drawable/main_menu_overlay" />
+
+    <!-- Buttons container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="90dp">
+
+        <!-- PLAY button -->
+        <FrameLayout
+            android:layout_width="189dp"
+            android:layout_height="39dp"
+            android:layout_margin="10dp">
+
+            <ImageButton
+                android:id="@+id/btnLevels"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/button_overlay"
+                android:scaleType="fitCenter"
+                android:contentDescription="Play Button" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="PLAY"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+        <!-- SETTINGS button -->
+        <FrameLayout
+            android:layout_width="189dp"
+            android:layout_height="39dp"
+            android:layout_margin="10dp">
+
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/button_overlay"
+                android:scaleType="fitCenter"
+                android:contentDescription="Settings Button" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="SETTINGS"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+        <!-- EXIT button -->
+        <FrameLayout
+            android:layout_width="189dp"
+            android:layout_height="39dp"
+            android:layout_margin="10dp">
+
+            <ImageButton
+                android:id="@+id/btnExit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/button_overlay"
+                android:scaleType="fitCenter"
+                android:contentDescription="Exit Button" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="EXIT"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
