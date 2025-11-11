@@ -5,410 +5,260 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#302821"
-    tools:context=".LevelsActivity">
-
-    <ImageView
-        android:id="@+id/floatingSword"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/sword2_sprite"
-        android:rotation="325"
-        android:layout_gravity="center"
-        android:translationX="-165dp"
-        android:translationY="-190dp"
-        android:alpha="1.0"/>
-
-    <ImageView
-        android:id="@+id/floatingSword2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/sword2_sprite"
-        android:rotation="35"
-        android:layout_gravity="center"
-        android:translationX="165dp"
-        android:translationY="-10dp"
-        android:alpha="1.0"/>
-
-    <ImageView
-        android:id="@+id/floatingSword3"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/candle_sprite"
-        android:layout_gravity="center"
-        android:rotation="5"
-        android:translationX="150dp"
-        android:translationY="-270dp"
-        android:alpha="1.0"/>
-
-    <ImageView
-        android:id="@+id/floatingSword4"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/sword2_sprite"
-        android:rotation="70"
-        android:layout_gravity="center"
-        android:translationX="165dp"
-        android:translationY="210dp"/>
+    tools:context=".activities.LevelsActivity">
 
     <LinearLayout
         android:id="@+id/levelLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:gravity="center"
         android:padding="16dp">
 
         <!-- Title -->
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SELECT LEVEL"
             android:textSize="45sp"
             android:textColor="#eafad9"
             android:textStyle="bold"
             android:gravity="center"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginBottom="32dp"
             android:shadowColor="#000000"
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="4"/>
 
-        <!-- Spacer -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
         <!-- Grid of levels -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <GridLayout
+            android:id="@+id/levelGrid"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
             android:gravity="center">
 
-            <GridLayout
-                android:id="@+id/levelGrid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:rowCount="3"
-                android:alignmentMode="alignMargins"
-                android:columnOrderPreserved="false"
-                android:gravity="center">
+            <!-- Level 1 -->
+            <FrameLayout
+                android:id="@+id/levelFrame1"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="8dp">
 
-                <!-- Level 1 -->
-                <FrameLayout
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="8dp">
+                <ImageButton
+                    android:id="@+id/level1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/level_overlay"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Level 1"/>
 
-                    <ImageButton
-                        android:id="@+id/level1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/level_overlay"
-                        android:scaleType="fitCenter"
-                        android:contentDescription="Level 1"
-                        android:clickable="true"
-                        android:focusable="true"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                    <TextView
+                        android:id="@+id/tvLevel1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LEVEL 1"
+                        android:textColor="#edfcd7"
+                        android:textStyle="bold"
+                        android:textSize="25sp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="LEVEL 1"
-                            android:textColor="#edfcd7"
-                            android:textStyle="bold"
-                            android:textSize="25sp"
-                            android:layout_marginBottom="10dp"
-                            android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/tvRecord1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your Record: --"
+                        android:textColor="#acbd93"
+                        android:textSize="12sp"
+                        android:gravity="center"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="  Your Record        1200"
-                            android:textColor="#acbd93"
-                            android:textSize="12sp"
-                            android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/tvCollectibles1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Collectables: 0/4"
+                        android:textColor="#acbd93"
+                        android:textSize="12sp"
+                        android:gravity="center"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Colectables       0/4"
-                            android:textColor="#acbd93"
-                            android:textSize="12sp"
-                            android:gravity="center"/>
+                </LinearLayout>
+            </FrameLayout>
 
-                    </LinearLayout>
-                </FrameLayout>
+            <!-- Level 2 -->
+            <FrameLayout
+                android:id="@+id/levelFrame2"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="8dp">
 
-                <!-- Level 2 -->
-                <FrameLayout
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="8dp">
+                <ImageButton
+                    android:id="@+id/level2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/level_overlay"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Level 2"/>
 
-                    <ImageButton
-                        android:id="@+id/level2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/level_overlay"
-                        android:scaleType="fitCenter"
-                        android:contentDescription="Level 2"
-                        android:clickable="true"
-                        android:focusable="true"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                    <TextView
+                        android:id="@+id/tvLevel2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LEVEL 2"
+                        android:textColor="#edfcd7"
+                        android:textStyle="bold"
+                        android:textSize="25sp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="LEVEL 2"
-                            android:textColor="#edfcd7"
-                            android:textStyle="bold"
-                            android:textSize="25sp"
-                            android:layout_marginBottom="10dp"
-                            android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/tvRecord2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your Record: --"
+                        android:textColor="#acbd93"
+                        android:textSize="12sp"
+                        android:gravity="center"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="  Your Record        1200"
-                            android:textColor="#acbd93"
-                            android:textSize="12sp"
-                            android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/tvCollectibles2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Collectables: 0/4"
+                        android:textColor="#acbd93"
+                        android:textSize="12sp"
+                        android:gravity="center"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Colectables       0/4"
-                            android:textColor="#acbd93"
-                            android:textSize="12sp"
-                            android:gravity="center"/>
+                </LinearLayout>
+            </FrameLayout>
 
-                    </LinearLayout>
-                </FrameLayout>
+            <!-- Level 3 -->
+            <FrameLayout
+                android:id="@+id/levelFrame3"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="8dp">
 
-                <!-- Level 3 -->
-                <FrameLayout
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="8dp">
+                <ImageButton
+                    android:id="@+id/level3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/level_overlay"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Level 3"/>
 
-                    <ImageButton
-                        android:id="@+id/level3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/level_overlay"
-                        android:scaleType="fitCenter"
-                        android:contentDescription="Level 3"
-                        android:clickable="true"
-                        android:focusable="true"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                    <TextView
+                        android:id="@+id/tvLevel3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LEVEL 3"
+                        android:textColor="#edfcd7"
+                        android:textStyle="bold"
+                        android:textSize="25sp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="LEVEL 3"
-                            android:textColor="#edfcd7"
-                            android:textStyle="bold"
-                            android:textSize="25sp"
-                            android:layout_marginBottom="10dp"
-                            android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/tvRecord3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your Record: --"
+                        android:textColor="#acbd93"
+                        android:textSize="12sp"
+                        android:gravity="center"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="  Your Record        1200"
-                            android:textColor="#acbd93"
-                            android:textSize="12sp"
-                            android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/tvCollectibles3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Collectables: 0/4"
+                        android:textColor="#acbd93"
+                        android:textSize="12sp"
+                        android:gravity="center"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Colectables       0/4"
-                            android:textColor="#acbd93"
-                            android:textSize="12sp"
-                            android:gravity="center"/>
+                </LinearLayout>
+            </FrameLayout>
 
-                    </LinearLayout>
-                </FrameLayout>
+            <!-- Level 4 -->
+            <FrameLayout
+                android:id="@+id/levelFrame4"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="8dp">
 
-                <!-- Level 4 -->
-                <FrameLayout
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="8dp">
+                <ImageButton
+                    android:id="@+id/level4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/level_overlay"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Level 4"/>
 
-                    <ImageButton
-                        android:id="@+id/level4"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/level_overlay"
-                        android:scaleType="fitCenter"
-                        android:contentDescription="Level 4"
-                        android:clickable="true"
-                        android:focusable="true"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                    <TextView
+                        android:id="@+id/tvLevel4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LEVEL 4"
+                        android:textColor="#edfcd7"
+                        android:textStyle="bold"
+                        android:textSize="25sp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="LEVEL 4"
-                            android:textColor="#edfcd7"
-                            android:textStyle="bold"
-                            android:textSize="25sp"
-                            android:layout_marginBottom="10dp"
-                            android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/tvRecord4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your Record: --"
+                        android:textColor="#acbd93"
+                        android:textSize="12sp"
+                        android:gravity="center"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="  Your Record        1200"
-                            android:textColor="#acbd93"
-                            android:textSize="12sp"
-                            android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/tvCollectibles4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Collectables: 0/4"
+                        android:textColor="#acbd93"
+                        android:textSize="12sp"
+                        android:gravity="center"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Colectables       0/4"
-                            android:textColor="#acbd93"
-                            android:textSize="12sp"
-                            android:gravity="center"/>
+                </LinearLayout>
+            </FrameLayout>
 
-                    </LinearLayout>
-                </FrameLayout>
-
-                <!-- Level 5 -->
-                <FrameLayout
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="8dp">
-
-                    <ImageButton
-                        android:id="@+id/level5"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/level_overlay"
-                        android:scaleType="fitCenter"
-                        android:contentDescription="Level 5"
-                        android:clickable="true"
-                        android:focusable="true"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="LEVEL 5"
-                            android:textColor="#edfcd7"
-                            android:textStyle="bold"
-                            android:textSize="25sp"
-                            android:layout_marginBottom="10dp"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="  Your Record        1200"
-                            android:textColor="#acbd93"
-                            android:textSize="12sp"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Colectables       0/4"
-                            android:textColor="#acbd93"
-                            android:textSize="12sp"
-                            android:gravity="center"/>
-
-                    </LinearLayout>
-                </FrameLayout>
-
-                <!-- Level 6 -->
-                <FrameLayout
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="8dp">
-
-                    <ImageButton
-                        android:id="@+id/level6"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/level_overlay"
-                        android:scaleType="fitCenter"
-                        android:contentDescription="Level 6"
-                        android:clickable="true"
-                        android:focusable="true"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="LEVEL 6"
-                            android:textColor="#edfcd7"
-                            android:textStyle="bold"
-                            android:textSize="25sp"
-                            android:layout_marginBottom="10dp"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="  Your Record        1200"
-                            android:textColor="#acbd93"
-                            android:textSize="12sp"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Colectables       0/4"
-                            android:textColor="#acbd93"
-                            android:textSize="12sp"
-                            android:gravity="center"/>
-
-                    </LinearLayout>
-                </FrameLayout>
-
-            </GridLayout>
-        </LinearLayout>
+        </GridLayout>
     </LinearLayout>
 
 </FrameLayout>

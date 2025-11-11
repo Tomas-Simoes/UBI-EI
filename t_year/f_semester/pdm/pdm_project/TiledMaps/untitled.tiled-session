@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_1.tmx",
+    "activeFile": "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_4.tmx",
     "expandedProjectPaths": [
         "."
     ],
@@ -29,18 +29,19 @@
             }
         },
         "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_1.tmx": {
-            "scale": 1.5,
-            "selectedLayer": 2,
+            "scale": 1,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 140,
-                "y": 320
+                "x": 351,
+                "y": 439
             }
         },
         "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_1.tmx#Coin Sheet": {
             "scaleInDock": 1
         },
         "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_1.tmx#Dungeon": {
-            "scaleInDock": 1
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_1.tmx#Set 4.5": {
             "scaleInDock": 1
@@ -57,11 +58,72 @@
         "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_1.tmx#water_decor": {
             "scaleInDock": 1
         },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_2.tmx": {
+            "scale": 1,
+            "selectedLayer": 8,
+            "viewCenter": {
+                "x": 351,
+                "y": 310
+            }
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_2.tmx#Coin Sheet": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_2.tmx#Dungeon": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_2.tmx#Set 4.5": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_2.tmx#Torch Yellow": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_2.tmx#Vase Shine Anim": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_2.tmx#bluecoin_sheet": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_2.tmx#water_decor": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_4.tmx": {
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 351,
+                "y": 171
+            }
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_4.tmx#Coin Sheet": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_4.tmx#Dungeon": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_4.tmx#Set 4.5": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_4.tmx#Torch Yellow": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_4.tmx#Vase Shine Anim": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_4.tmx#bluecoin_sheet": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_4.tmx#dungeon_decor": {
+            "scaleInDock": 1
+        },
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_4.tmx#water_decor": {
+            "scaleInDock": 1
+        },
         "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/map_test.tmx": {
             "scale": 1.7654166666666666,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 159.7356620250177,
+                "x": 159.73566202501772,
                 "y": 159.7356620250177
             }
         },
@@ -122,6 +184,10 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "dungeon_decor.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "water_decor.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
@@ -137,34 +203,29 @@
     "map.tileWidth": 16,
     "map.width": 20,
     "openFiles": [
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_4.tmx",
         "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_1.tmx",
-        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/map_test.tmx",
-        "Water.tsx",
-        "Coin Sheet.tsx",
-        "Torch Yellow.tsx",
-        "Vase Shine Anim.tsx",
-        "Dungeon.tsx",
-        "BlueCoin Sheet.tsx",
-        "water_decor.tsx"
+        "dungeon_decor.tsx",
+        "dungeon_decor.tsx"
     ],
     "project": "untitled.tiled-project",
     "recentFiles": [
+        "dungeon_decor.tsx",
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_1.tmx",
+        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_4.tmx",
         "water_decor.tsx",
         "BlueCoin Sheet.tsx",
         "Dungeon.tsx",
         "Vase Shine Anim.tsx",
-        "Torch Yellow.tsx",
         "Coin Sheet.tsx",
         "Water.tsx",
+        "Torch Yellow.tsx",
         "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/map_test.tmx",
-        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/maps/level_1.tmx",
-        "WaterDetails.tsx",
-        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/assets/map_test.tmx",
-        "C:/Users/tomas/OneDrive/Desktop/Folders/dev/UBI-EI/t_year/f_semester/pdm/pdm_project/app/src/main/res/raw/level_1.tmj"
+        "WaterDetails.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 16,
-        "width": 16
+        "height": 32,
+        "width": 32
     }
 }

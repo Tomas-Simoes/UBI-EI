@@ -13,16 +13,16 @@
         android:theme="@style/Theme.Pdm_project">
 
         <activity
-            android:name=".SettingsActivity"
+            android:name=".activities.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".LevelsActivity"
+            android:name=".activities.LevelsActivity"
             android:exported="false" />
         <activity
-            android:name=".GameActivity"
+            android:name=".activities.GameActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

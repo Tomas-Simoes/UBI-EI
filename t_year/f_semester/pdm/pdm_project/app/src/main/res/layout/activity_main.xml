@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#302821"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <!-- Game title -->
 
@@ -13,10 +13,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:text="DUNGEON ROLL"
         android:textColor="#FFFFFF"
         android:textSize="35sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="190dp"
+        android:text="Earn     to flex your friends"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="150dp"
+        android:text="Earn      to complete the level"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <ImageView
@@ -29,6 +50,20 @@
         android:contentDescription="Levels Image"
         android:src="@drawable/main_menu_overlay" />
 
+    <ImageView
+        android:layout_marginTop="155dp"
+        android:layout_marginLeft="101dp"
+        android:layout_width="60dp"
+        android:layout_height="23dp"
+        android:contentDescription="Levels Image"
+        android:src="@drawable/yellow" />
+    <ImageView
+        android:layout_marginTop="196dp"
+        android:layout_marginLeft="111dp"
+        android:layout_width="60dp"
+        android:layout_height="23dp"
+        android:contentDescription="Levels Image"
+        android:src="@drawable/blue" />
     <!-- Buttons container -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,32 +100,7 @@
                 android:textSize="16sp" />
         </FrameLayout>
 
-        <!-- SETTINGS button -->
-        <FrameLayout
-            android:layout_width="189dp"
-            android:layout_height="39dp"
-            android:layout_margin="10dp">
 
-            <ImageButton
-                android:id="@+id/btnSettings"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:clickable="true"
-                android:focusable="true"
-                android:src="@drawable/button_overlay"
-                android:scaleType="fitCenter"
-                android:contentDescription="Settings Button" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="SETTINGS"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:textSize="16sp" />
-        </FrameLayout>
 
         <!-- EXIT button -->
         <FrameLayout

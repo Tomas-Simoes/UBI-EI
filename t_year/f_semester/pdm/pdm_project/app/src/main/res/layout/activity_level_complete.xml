@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/overlay_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#AA000000"
+    android:visibility="gone"> <!-- semi-transparent black -->
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvLevelCompletedTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="60dp"
+        android:text="LEVEL COMPLETED!"
+        android:textColor="#FFFFFF"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <!-- Image -->
+    <ImageView
+        android:id="@+id/imgLevelCompleted"
+        android:layout_width="337dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="Level Completed Image"
+        android:scaleType="fitCenter"
+        android:src="@drawable/level_completed_overlay" />
+
+    <!-- Info container on top of the image -->
+    <LinearLayout
+        android:id="@+id/infoContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:padding="10dp">
+
+        <!-- Time row -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/tvTimeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TIME                  "
+                android:textColor="#171717"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="20dp"/>
+
+            <TextView
+                android:id="@+id/tvLevelTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textColor="#171717"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Coins row -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/tvCoinsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="COINS                       "
+                android:textColor="#171717"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="20dp"/>
+
+            <TextView
+                android:id="@+id/tvCoinsCollected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#171717"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Blue Coins row -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:id="@+id/tvBlueCoinsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BLUE COINS            "
+                android:textColor="#171717"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="20dp"/>
+
+            <TextView
+                android:id="@+id/tvBlueCoinsCollected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#171717"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Buttons container -->
+        <LinearLayout
+            android:layout_width="301dp"
+            android:layout_height="59dp"
+            android:layout_marginLeft="3dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_margin="2dp">
+
+                <ImageButton
+                    android:id="@+id/btnNextLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:contentDescription="Next Level Button"
+                    android:focusable="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/button_overlay" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="NEXT LEVEL"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+            <!-- HOME button -->
+            <FrameLayout
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_margin="10dp">
+
+                <ImageButton
+                    android:id="@+id/btnHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:contentDescription="Home Button"
+                    android:focusable="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/button_overlay" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="HOME"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
