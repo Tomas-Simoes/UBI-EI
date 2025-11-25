@@ -1,0 +1,131 @@
+(rule
+ (with-outputs-to test01.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test01.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test01.out test01.out.generated)))
+
+(rule
+ (with-outputs-to test02.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test02.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test02.out test02.out.generated)))
+
+(rule
+ (with-outputs-to test03.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test03.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test03.out test03.out.generated)))
+
+(rule
+ (with-outputs-to test04.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test04.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test04.out test04.out.generated)))
+
+(rule
+ (with-outputs-to test05.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test05.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test05.out test05.out.generated)))
+
+(rule
+ (with-outputs-to test06.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test06.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test06.out test06.out.generated)))
+
+(rule
+ (with-outputs-to test07.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test07.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test07.out test07.out.generated)))
+
+(rule
+ (with-outputs-to test08.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test08.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test08.out test08.out.generated)))
+
+(rule
+ (with-outputs-to test09.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test09.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test09.out test09.out.generated)))
+
+(rule
+ (with-outputs-to test10.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test10.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test10.out test10.out.generated)))
+
+(rule
+ (with-outputs-to test11.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test11.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test11.out test11.out.generated)))
+
+(rule
+ (with-outputs-to test12.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test12.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test12.out test12.out.generated)))
+
+(rule
+ (with-outputs-to test13.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test13.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test13.out test13.out.generated)))
+
+(rule
+ (with-outputs-to test14.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test14.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test14.out test14.out.generated)))
+
+(rule
+ (with-outputs-to test15.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test15.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test15.out test15.out.generated)))
+
+(rule
+ (with-outputs-to test16.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test16.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test16.out test16.out.generated)))
+
+(rule
+ (with-outputs-to test17.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test17.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test17.out test17.out.generated)))
+
+(rule
+ (with-outputs-to test18.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test18.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test18.out test18.out.generated)))
+
+(rule
+ (with-outputs-to test19.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test19.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test19.out test19.out.generated)))
+
+(rule
+ (with-outputs-to test20.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:test20.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff test20.out test20.out.generated)))
+
+(rule
+ (with-outputs-to testepsilon.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:testepsilon.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff testepsilon.out testepsilon.out.generated)))
+
+(rule
+ (with-outputs-to testfinalboss.out.generated
+  (with-accepted-exit-codes 0
+   (run bash -c "cat %{dep:testfinalboss.in} | %{exe:../nfa2nfa.exe}"))))
+(rule (alias runtest) (action (diff testfinalboss.out testfinalboss.out.generated)))

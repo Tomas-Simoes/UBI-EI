@@ -118,33 +118,32 @@ def estado_terminal(T):
 # ignoramos a profundidade e devolvemos o valor, a ação e o estado resultante
 def alfabeta(T, alfa, beta, jogador):
     if estado_terminal(T):
-        return utilidade(T),-1,-1
+        return utilidade(T), -1, -1
+    
     if jogador == 'MAX':
         v = -10
-        ba=-1
+        melhor_acao = -1
         for a in acoes(T):
             v1, ac, es = alfabeta(resultado(T, a, 'MAX'), alfa, beta, 'MIN')
-            if v1 > v: # guardo a ação que corresponde ao melhor
+            if v1 > v:
                 v = v1
-                ba = a
+                melhor_acao = a
             alfa = max(alfa, v)
             if v >= beta:
                 break
-        return v, ba, resultado(T, ba, 'MAX')
+        return v, melhor_acao, resultado(T, melhor_acao, 'MAX')
     else:
         v = 10
-        ba= -1
+        melhor_acao = -1
         for a in acoes(T):
             v1, ac, es = alfabeta(resultado(T, a, 'MIN'), alfa, beta, 'MAX')
-            if v1 < v: # guardo a ação que corresponde ao melhor
+            if v1 < v:
                 v = v1
-                ba = a
+                melhor_acao = a
             beta = min(beta, v)
             if v <= alfa:
                 break
-        return v, ba, resultado(T, ba, 'MIN')
-
-
+        return v, melhor_acao, resultado(T, melhor_acao, 'MIN')
 # ------------------------------------------------------------------
 def joga_max(T):
     # passamos o tabuleiro e valores iniciais para alfa e beta
