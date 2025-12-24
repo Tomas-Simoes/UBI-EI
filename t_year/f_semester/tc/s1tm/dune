@@ -1,0 +1,5 @@
+(executable
+ (name s1tm)
+ (libraries unix)
+ (preprocess (pps ppx_yojson_conv ppx_deriving_yaml))
+)

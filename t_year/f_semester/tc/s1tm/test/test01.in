@@ -1,0 +1,19 @@
+M:
+  # TM deciding { w in {a,b}* | w = aba* }
+  states: [s, q3, q4, qA, qR]
+  input_alphabet: [a, b]
+  tape_alphabet_extra: [_,'#']
+  start_state: s
+  accept_state: qA
+  reject_state: qR
+
+  delta:
+    s:
+      a: [q3, a, R]
+    q3:
+      b: [q4, b, R]
+    q4:
+      a: [q4, a, R]
+      _: [qA, '#', R]
+
+w:  "abaa"
