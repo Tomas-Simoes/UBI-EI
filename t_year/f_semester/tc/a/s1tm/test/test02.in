@@ -1,4 +1,5 @@
 M:
+  # TM deciding { w in {0,1,2}* | w = 0^n1^n2^n and n≥1 }
   states: [s, q1, q2, q3, q4, qA, qR]
   input_alphabet: [0, 1, 2]
   tape_alphabet_extra: [x,y,z,_]

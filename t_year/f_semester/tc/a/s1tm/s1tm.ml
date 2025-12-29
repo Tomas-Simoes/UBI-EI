@@ -7,7 +7,7 @@ let simbolo_to_yaml s = `String s
 let simbolo_of_yaml = function
   | `String s -> Ok s
   | `Float f -> Ok (string_of_int (int_of_float f))
-  | `Bool b -> Ok (if b then "y" else "n")
+  | `Bool b -> Ok (if b then "1" else "0")
   | v -> Error (`Msg ("Invalid simbolo in YAML: " ^ Yaml.to_string_exn v))
 
 type direction = L | R | S
@@ -93,63 +93,19 @@ let tm_w_de_string s = s |> Yaml.of_string_exn |> tm_w_of_yaml |> yaml_val
 (* tm_w para string *)
 let tm_w_para_string tm_w = tm_w |> tm_w_to_yaml |> Yaml.to_string_exn
 
-let verbose = false (* Toggle to false to hide debug steps *)
+let verbose = true
 
-let enable f = if verbose then f () else ()
+let enable f = if verbose then f else ignore
 
-let debug_print fmt =
-  Printf.ksprintf (fun s -> enable (fun () -> print_endline s)) fmt
-
-let update_tape tape index new_symbol = 
-  if index >= String.length tape then 
-    tape ^ (String.make (index - String.length tape) '_' ^ String.make 1 new_symbol)
-  else 
-    let tape' = Bytes.of_string tape in 
-    Bytes.set tape' index new_symbol;
-    Bytes.to_string tape'
-
-let rec check_tape tm tape t_index cur_state =
-  if t_index < 0 then (
-    debug_print "Head moved left of index 0 - REJECT";
-    Some (false, tape)
-  ) else
-    let cur_char = if t_index >= String.length tape then '_' else tape.[t_index] in
-    let cur_char_str = String.make 1 cur_char in
-    
-    match Hashtbl.find_opt tm.delta cur_state with 
-    | None ->
-        debug_print "No transitions found for state '%s'" cur_state;
-        Some (false, tape) 
-    | Some transitions ->
-        match Hashtbl.find_opt transitions cur_char_str with 
-        | None -> 
-            debug_print "No transition for symbol '%s' in state '%s' - REJECT" cur_char_str cur_state;
-            Some (false, tape)
-        | Some (new_state, new_symbol, direction) ->
-            let new_tape = update_tape tape t_index new_symbol.[0] in 
-            let new_t_index = match direction with L -> t_index - 1 | R -> t_index + 1 | S -> t_index in 
-            
-            debug_print "State: %s | Read: %s | Write: %s | Move: %s | New Tape: %s" 
-                        cur_state cur_char_str new_symbol (match direction with L->"L"|R->"R"|S->"S") new_tape;
-
-            if new_state = tm.accept_state then Some (true, new_tape) 
-            else if new_state = tm.reject_state then Some (false, new_tape)
-            else check_tape tm new_tape new_t_index new_state
-
-let () =  
-  let _ = read_multiplelines in 
-  let _ = tm_w_de_string in 
-  let _ = tm_w_para_string in 
-  
+let _ =
   let s = read_multiplelines () |> String.trim in
-  let tm_w_obj = match s |> Yaml.of_string_exn |> tm_w_of_yaml with
-    | Ok v -> v | Error (`Msg m) -> failwith m in
-  
-  match check_tape tm_w_obj.m tm_w_obj.w 0 tm_w_obj.m.start_state with
-  | Some (true, final_tape) ->
-      print_endline "YES";
-      Printf.printf "%s_\n" final_tape
-  | Some (false, final_tape) ->
-      print_endline "NO";
-      Printf.printf "%s_\n" final_tape
-  | None -> print_endline "DON'T KNOW"
+  enable print_endline s ;
+  let s' = s |> tm_w_de_string |> tm_w_para_string in
+  (* deve verificar a validade das entradas *)
+  (*if not ... then (
+    print_endline "INVALID";
+    exit 0
+  );*)
+
+  (* imprimir tm_w *)
+  enable print_endline s' ; exit 0

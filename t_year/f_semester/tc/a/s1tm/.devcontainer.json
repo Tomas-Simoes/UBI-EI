@@ -1,0 +1,8 @@
+{
+    "name": "tc-labs",
+    "image": "docker.io/debian:11",
+    "workspaceFolder": "/workspaces",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=bind,consistency=default",
+    "postCreateCommand": "uname -a && apt update && apt install opam -y && opam init --disable-sandboxing -y && opam update && opam install dune -y && opam install merlin -y && opam install ocp-indent -y && opam install utop -y && opam install ocaml-lsp-server -y && opam install ocamlformat -y && opam install yojson ppx_yojson_conv ppx_deriving_yaml -y",
+    "extensions": ["ocamllabs.ocaml-platform"],
+}
