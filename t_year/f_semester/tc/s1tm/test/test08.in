@@ -1,0 +1,15 @@
+M:
+  states: [s, q1, q2, qA, qR]
+  input_alphabet: [a]
+  tape_alphabet_extra: [b, _]
+  start_state: s
+  accept_state: qA
+  reject_state: qR
+  delta:
+    s:
+      a: [q1, a, R]
+    q1:
+      _: [q2, b, R]
+    q2:
+      _: [qA, _, S]
+w: "a"

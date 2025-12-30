@@ -1,0 +1,13 @@
+M:
+  states: [qStart, qCheck, qAccept, qReject]
+  input_alphabet: [0]
+  tape_alphabet_extra: [X, _]
+  start_state: qStart
+  accept_state: qAccept
+  reject_state: qReject
+  delta:
+    qStart:
+      0: [qCheck, X, L]
+    qCheck:
+      X: [qAccept, X, R]
+w: "0"

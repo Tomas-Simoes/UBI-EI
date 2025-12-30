@@ -1,0 +1,9 @@
+M:
+  states: [qAccept, qReject]
+  input_alphabet: [a]
+  tape_alphabet_extra: [_]
+  start_state: qAccept
+  accept_state: qAccept
+  reject_state: qReject
+  delta: {}
+w: "a"
